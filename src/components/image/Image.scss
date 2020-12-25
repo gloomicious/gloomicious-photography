@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+.image {
+  &__wrapper {
+    position: relative;
+  }
+
+  &--full-width {
+    width: calc(100vw - #{$spacing-sm * 2});
+    max-width: $site-width;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.gatsby-image-wrapper {
+  @include rounded-edges;
+  @include not-selectable;
+}

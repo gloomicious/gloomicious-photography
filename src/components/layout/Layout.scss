@@ -1,0 +1,126 @@
+@import "./variables.scss";
+
+body {
+  margin: 0;
+  font-family: $font;
+  font-weight: $font-thin;
+  font-size: $font-xs;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $light;
+  color: $dark;
+  transition: $transition-fast;
+
+  &.dark {
+    background-color: $gray-5;
+    color: $light;
+
+    a {
+      color: $light;
+    }
+
+    p a,
+    ul a {
+      color: $primary;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+
+    svg {
+      fill: $light;
+    }
+  }
+}
+
+main {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+p {
+  font-size: $font-xs;
+  line-height: $font-line-height;
+}
+
+a {
+  color: $dark;
+  text-decoration: none;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $secondary;
+  }
+}
+
+p a,
+ul a {
+  color: $primary;
+}
+
+ul {
+  line-height: $font-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $font-bold;
+}
+
+h1 {
+  font-size: $font-xxl;
+}
+h2 {
+  font-size: $font-xl;
+}
+h3 {
+  font-size: $font-lg;
+}
+h4 {
+  font-size: $font-md;
+}
+h5,
+h6 {
+  font-size: $font-sm;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  display: initial;
+  text-align: unset;
+  background-color: transparent;
+  padding: unset;
+  border-style: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background: $primary;
+}
+::-moz-selection {
+  background: $primary;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+  max-width: $site-width;
+}

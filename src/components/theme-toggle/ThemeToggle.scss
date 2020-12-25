@@ -1,0 +1,28 @@
+@import "styles/variables.scss";
+
+.theme-toggle {
+  width: 1.25em;
+  float: right;
+  position: relative;
+  margin-left: $spacing-lg;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.dark {
+    svg {
+      fill: $light;
+    }
+  }
+
+  svg {
+    position: absolute;
+    fill: $dark;
+    transition: $transition-fast;
+
+    &:hover {
+      fill: $gray-2;
+    }
+  }
+}

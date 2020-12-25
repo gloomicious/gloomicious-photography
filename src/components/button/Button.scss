@@ -1,0 +1,73 @@
+@import "styles/variables.scss";
+
+$button-size-sm: 30px;
+$button-size-md: 40px;
+$button-size-lg: 60px;
+
+.button {
+  @include not-selectable;
+  @include rounded-edges;
+  $p: &;
+  display: inline-block;
+  position: relative;
+  font-weight: $font-bold;
+  font-size: $font-xs;
+  text-decoration: none;
+  color: $dark;
+  padding: $spacing-xxs $spacing-xs;
+  border: 1px solid $dark;
+  transition: $transition-fast;
+
+  &.dark {
+    color: $light;
+    border: 1px solid $light;
+
+    line,
+    path {
+      fill: $light;
+    }
+
+    &:hover {
+      color: $dark;
+      background-color: $light;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $light;
+    background-color: $dark;
+
+    line,
+    path {
+      fill: $gray-2;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  line,
+  path {
+    fill: $gray-3;
+    transition: $transition-fast;
+  }
+
+  &__label {
+    font-size: $font-xs;
+    float: left;
+  }
+
+  &__icon {
+    float: right;
+    height: $button-size-sm - 10;
+    width: 20px;
+    margin-left: 0.5em;
+
+    &.gatsby-image-wrapper {
+      filter: invert(1);
+      transition: $transition-fast;
+    }
+  }
+}

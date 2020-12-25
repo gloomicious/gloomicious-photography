@@ -1,0 +1,65 @@
+@import "styles/variables.scss";
+
+.section {
+  padding: 0;
+
+  &:not(:last-of-type) {
+    margin-bottom: $spacing-xxl;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  &--wide {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - #{$spacing-sm * 2});
+    max-width: $site-width;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+
+    &:not(:last-of-type) {
+      margin-bottom: $spacing-lg;
+
+      @media screen and (min-width: $screen-md) {
+        margin: 0;
+        margin-right: $spacing-sm;
+      }
+    }
+
+    &--50 {
+      align-self: center;
+
+      @media screen and (min-width: $screen-md) {
+        flex: 1;
+      }
+    }
+  }
+
+  &__title,
+  &__subtitle {
+    margin-bottom: $spacing-xs;
+  }
+
+  &__button {
+    margin-top: $spacing-lg;
+  }
+}

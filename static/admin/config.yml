@@ -1,0 +1,178 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend: true
+
+media_folder: src/images
+public_folder: ""
+
+project:
+  - &followupContent
+    - { label: Template Key, name: templateKey, widget: hidden, default: followup-page }
+    - { label: SEO title, name: seoTitle, widget: string }
+    - { label: SEO description, name: seoDescription, widget: string }
+    - { label: URL path (with leading slash), name: path, widget: string }
+    - { label: Page image, name: pageImage, widget: image, required: false }
+    - { label: Last edited, name: date, widget: datetime, date_format: YYYY-MM-DD }
+    - { label: Category, name: category, widget: select, required: false, options: [america, asia, europe, desert, tropics, forest, urban, growth, personal, photography, sustainability, travel] }
+    - {
+        label: Section,
+        name: section,
+        widget: list,
+        required: true,
+        fields:
+          [
+            { label: Type, name: type, widget: select, options: [ "text", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ], default: ["text"] },
+            { label: Section width, name: size, widget: select, required: false, options: ["narrow", "wide"], default: "narrow" },
+            { label: Alignment, name: alignment, widget: select, required: false, options: ["left", "center"], default: "left" },
+            { label: Title, name: title, widget: string, required: false },
+            { label: Subtitle, name: subtitle, widget: string, required: false },
+            { label: Text, name: text, widget: markdown, required: false },
+            {
+              label: Image,
+              name: image,
+              widget: object,
+              required: false,
+              fields:
+                [
+                  { label: File, name: file, widget: image, required: false },
+                  { label: Size, name: size, widget: select, required: false, options: ["square", "full-width"] },
+                ]
+            },
+            {
+              label: Gallery,
+              name: gallery,
+              widget: object,
+              required: false,
+              fields:
+                [
+                  { label: Type, name: type, widget: hidden, default: "full-width" },
+                  {
+                    label: Photos,
+                    name: photos,
+                    widget: list,
+                    required: false,
+                    fields:
+                      [
+                        { label: Title, name: title, widget: string, required: false },
+                        { label: Image, name: image, widget: image, required: false },
+                      ],
+                  },
+                ]
+            },
+            {
+              label: Page List,
+              name: pageList,
+              widget: select,
+              required: false,
+              options:
+                [
+                  { label: None, value: none },
+                  { label: Photo collections, value: photo-collections },
+                  { label: Blog pages, value: blog-pages }
+                ]
+            },
+            { label: Button label, name: buttonLabel, widget: string, required: false },
+            { label: Button link, name: buttonLink, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
+          ]
+      }
+
+collections:
+  - name: pages
+    label: General pages
+    files:
+      - file: src/pages/index.md
+        label: Landing page
+        name: index
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: index-page }
+          - { label: SEO title, name: seoTitle, widget: string }
+          - { label: SEO description, name: seoDescription, widget: string }
+          - { label: Page image, name: image, widget: image }
+          - { label: Page text, name: text, widget: string }
+          - { label: Button label, name: buttonLabel, widget: string, required: false }
+          - { label: Button link, name: buttonLink, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
+      - file: src/pages/explore.md
+        label: Explore
+        name: explore
+        fields: *followupContent
+      - file: src/pages/collections.md
+        label: Collections
+        name: collections
+        fields: *followupContent 
+      - file: src/pages/journal.md
+        label: Journal
+        name: journal
+        fields: *followupContent    
+      - file: src/pages/about.md
+        label: About
+        name: about
+        fields: *followupContent
+      - file: src/pages/contact.md
+        label: Contact
+        name: contact
+        fields: *followupContent
+      - file: src/pages/imprint.md
+        label: Imprint
+        name: imprint
+        fields: *followupContent
+      - file: src/pages/privacy-policy.md
+        label: Privacy policy
+        name: privacy-policy
+        fields: *followupContent
+
+  - name: photo-collection
+    label: Photo collection
+    folder: src/pages/photo-collection
+    create: true
+    fields: *followupContent
+
+  - name: blog
+    label: Journal entry
+    folder: src/pages/blog
+    create: true
+    fields: *followupContent
+
+  - name: settings
+    label: Settings
+    files:
+      - file: src/settings/navbar.yml
+        label: Navbar
+        name: navbar
+        fields:
+          - {
+              label: Links,
+              name: links,
+              widget: list,
+              fields:
+                [
+                  { label: Label, name: label, widget: string, required: false },
+                  { label: Page, name: link, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
+                ]
+            }
+      - file: src/settings/footer.yml
+        label: Footer
+        name: footer
+        fields:
+          - {
+              label: Links,
+              name: links,
+              widget: list,
+              fields:
+                [
+                  { label: Label, name: label, widget: string, required: false },
+                  { label: Page, name: link, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
+                ]
+            }
+          - {
+              label: Social,
+              name: social,
+              widget: list,
+              fields:
+                [
+                  { label: Icon, name: icon, widget: select, required: false, options: [500px, Behance, Instagram, Mail, Pinterest, YouTube] },
+                  { label: Link, name: link, widget: string, required: false }
+                ]
+            }
+          - { label: Copyright text (after © 2020), name: copyright, widget: string }

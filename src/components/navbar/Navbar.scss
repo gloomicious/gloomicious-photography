@@ -1,0 +1,127 @@
+@import "styles/variables.scss";
+
+.navbar {
+  $p: &;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-xxl;
+  padding-bottom: $spacing-xs;
+  border-bottom: 1px solid $dark;
+
+  @media screen and (min-width: $screen-md) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: $spacing-sm;
+  }
+
+  &.dark {
+    border-bottom: 1px solid $light;
+
+    #{$p}__logo {
+      border-bottom: 1px solid $light;
+
+      @media screen and (min-width: $screen-md) {
+        border-bottom: none;
+      }
+
+      &:hover svg {
+        fill: $primary;
+      }
+
+      svg {
+        fill: $light;
+      }
+    }
+  }
+
+  &--wide {
+    @media screen and (min-width: $screen-xxl) {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(#{$site-width} + 300px);
+    }
+  }
+
+  &__theme-toggle {
+    &--mobile {
+      top: -3.75em;
+
+      @media screen and (min-width: $screen-md) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @media screen and (min-width: $screen-md) {
+        display: block;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: $screen-md) {
+      display: block;
+    }
+  }
+
+  &__logo,
+  &__link {
+    transition: $transition-fast;
+
+    &:hover {
+      color: $gray-2;
+    }
+  }
+
+  &__logo {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: $font-bold;
+    margin-bottom: $spacing-xs;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $dark;
+
+    &:hover {
+      svg {
+        fill: $primary;
+      }
+    }
+
+    @media screen and (min-width: $screen-md) {
+      margin: 0;
+      padding: 0;
+      border-bottom: none;
+    }
+
+    svg {
+      width: 1.5em;
+      float: left;
+      fill: $dark;
+      margin-right: $spacing-xxs;
+      transition: $transition-fast;
+    }
+
+    span {
+      display: block;
+      width: 15em;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    @media screen and (min-width: $screen-md) {
+      &:not(:first-of-type) {
+        margin-left: $spacing-lg;
+      }
+    }
+  }
+}
