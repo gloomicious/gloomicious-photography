@@ -12,7 +12,7 @@ const Layout = ({ location, children }) => {
 
   useEffect(() => {
     setCanRender(true)
-  })
+  }, [])
 
   // Index page without scrollbar
   if (location.pathname === rootPath || location === "Home") {
