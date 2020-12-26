@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 import { ThemeContext } from "../../contexts/ThemeContext"
@@ -7,7 +7,12 @@ import Navbar from "../navbar/Navbar"
 import Footer from "../footer/Footer"
 
 const Layout = ({ location, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+  const rootPath = `${__PATH_PREFIX__}/`,
+    [canRender, setCanRender] = useState(false)
+
+  useEffect(() => {
+    setCanRender(true)
+  })
 
   // Index page without scrollbar
   if (location.pathname === rootPath || location === "Home") {
@@ -15,7 +20,7 @@ const Layout = ({ location, children }) => {
       <ThemeContext.Consumer>
         {theme => (
           <>
-            {document.body.classList.add("dark")}
+            {canRender && document.body.classList.add("dark")}
             <div className="content-wrapper">
               <header>
                 <Navbar theme={theme} size="wide" forceLight="true" />
@@ -34,9 +39,10 @@ const Layout = ({ location, children }) => {
       <ThemeContext.Consumer>
         {theme => (
           <SimpleBar style={{ maxHeight: "100vh" }}>
-            {theme.name === "dark"
-              ? document.body.classList.add("dark")
-              : document.body.classList.remove("dark")}
+            {canRender &&
+              (theme.name === "dark"
+                ? document.body.classList.add("dark")
+                : document.body.classList.remove("dark"))}
             <div className="content-wrapper">
               <header>
                 <Navbar theme={theme} />
