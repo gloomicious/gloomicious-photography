@@ -31,6 +31,9 @@
     "react-transition-group": "^4.4.1",
     "simplebar-react": "^2.3.0"
   },
+  "resolutions": {
+    "sharp": "^0.24.1"
+  },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
     "prettier": "2.0.5"
