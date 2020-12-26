@@ -1,8 +1,8 @@
 {
   "name": "gloomicious-photography",
   "private": true,
-  "description": "A photography and travel guide website built with React.",
-  "version": "0.1.0",
+  "description": "A website showcasing the beauty of our planet through photography.",
+  "version": "1.0.0",
   "author": "Gloomicious",
   "dependencies": {
     "gatsby": "^2.29.2",
@@ -36,7 +36,11 @@
     "prettier": "2.0.5"
   },
   "keywords": [
-    "gatsby"
+    "react",
+    "gatsby",
+    "photography",
+    "travel",
+    "blog"
   ],
   "license": "0BSD",
   "scripts": {
@@ -45,14 +49,13 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/gloomicious/gloomicious-photography"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/gloomicious/gloomicious-photography/issues"
   }
 }
