@@ -32,7 +32,7 @@ project:
         required: true,
         fields:
           [
-            { label: Type, name: type, widget: select, options: [ "text", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ], default: ["text"] },
+            { label: Type, name: type, widget: select, options: [ "text", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ] },
             { label: Section width, name: size, widget: select, required: false, options: ["narrow", "wide"], default: "narrow" },
             { label: Alignment, name: alignment, widget: select, required: false, options: ["left", "center"], default: "left" },
             { label: Title, name: title, widget: string, required: false },
@@ -134,12 +134,18 @@ collections:
   - name: photo-collection
     label: Photo collection
     folder: src/pages/photo-collection
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     create: true
     fields: *followupContent
 
   - name: blog
     label: Journal entry
     folder: src/pages/blog
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     create: true
     fields: *followupContent
 
