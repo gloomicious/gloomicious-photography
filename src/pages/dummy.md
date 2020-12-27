@@ -5,7 +5,7 @@ seoDescription: dummy
 path: /dummy
 pageTitle: Dummy
 pageSubtitle: I'm a dummybear
-pageImage: a7_01150.jpg
+pageImage: placeholder.jpg
 section:
   - type: gallery
     gallery:
@@ -13,5 +13,6 @@ section:
       imageLabels: none
       photos:
         - title: Title
-          page: /followup
+          image: placeholder.jpg
+          page: /dummy
 ---
