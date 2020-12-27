@@ -7,11 +7,8 @@
   Gloomicious photography website
 </h1>
 
-This is the source code for the website showcasing my passion for taking pictures of the earth and writing travel guides.
-It is currently under development.
+A website to showcase my photographs I took of the diversity of the Earth, its unique landscapes and creatures. A collection of outdoor and aerial photos to pay tribute to the beauty of our planet and show everyone that there are endless new things to see.
 
-## Deploy
+It is built using React, Gatsby and Netlify CMS and deployed on Netlify.
 
-The following link to netlify has to be updated once Netlify has been connected.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+The website is live at <a href="https://www.gloomicious.com">gloomicious.com</a>.
