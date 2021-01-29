@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import "./BackgroundImage.scss"
 
-const Image = props => (
+const Image = ({ filename, size, alt, className, children }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -24,7 +24,7 @@ const Image = props => (
     `}
     render={data => {
       const image = data.images.edges.find(n => {
-        return n.node.relativePath.includes(props.filename)
+        return n.node.relativePath.includes(filename)
       })
       if (!image) {
         return null
@@ -32,19 +32,19 @@ const Image = props => (
 
       return (
         <div
-          className={`background-image ${
-            props.className ? props.className : ""
-          } ${props.size ? `background-image--${props.size}` : ""}`}
+          className={`background-image ${className ? className : ""} ${
+            size ? `background-image--${size}` : ""
+          }`}
         >
           <div className="background-image__overlay"></div>
           <BackgroundImage
             className="background-image__photo"
-            alt={props.alt}
+            alt={alt}
             fluid={image.node.childImageSharp.fluid}
             preserveStackingContext={true}
-            backgroundColor={`#262626`}
+            backgroundColor={`#161a1b`}
           >
-            <div className="background-image__content">{props.children}</div>
+            <div className="background-image__content">{children}</div>
           </BackgroundImage>
         </div>
       )
