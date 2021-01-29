@@ -17,15 +17,15 @@ body {
 
     a {
       color: $light;
+
+      &:hover {
+        color: $gray-3;
+      }
     }
 
     p a,
     ul a {
       color: $primary;
-
-      &:hover {
-        color: $primary-light;
-      }
     }
 
     svg {
@@ -50,13 +50,18 @@ a {
   transition: $transition-fast;
 
   &:hover {
-    color: $primary-light;
+    color: $gray-3;
   }
 }
 
 p a,
 ul a {
   color: $primary;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $primary-light;
+  }
 }
 
 ul {

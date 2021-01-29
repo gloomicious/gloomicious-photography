@@ -32,7 +32,7 @@ export default function Lightbox({ open, setOpen, item }) {
         className="lightbox__close-button"
         onClick={() => FadeOutLightbox()}
       >
-        <Icon name="Cross" />
+        <Icon name="cross" />
       </button>
       <div className="lightbox__content">
         <Image

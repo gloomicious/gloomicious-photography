@@ -10,12 +10,14 @@ export default function Navbar({ theme, size, forceLight, content }) {
     style = theme ? theme : { name: "light" }
 
   return (
-    <nav className={`navbar ${forceLight ? "dark" : style.name}${
-      size ? ` navbar--${size}` : ""
-    }`}>
+    <nav
+      className={`navbar ${forceLight ? "dark" : style.name}${
+        size ? ` navbar--${size}` : ""
+      }`}
+    >
       <Link to="/" className="navbar__logo">
-        <Icon name="Logo Gloomicious" className="navbar__logo__icon" />
-        <span>gloomicious</span>
+        <Icon name="logo gloomicious" className="navbar__logo__icon" />
+        <span className="navbar__logo__text">gloomicious</span>
       </Link>
       {forceLight ? (
         ""

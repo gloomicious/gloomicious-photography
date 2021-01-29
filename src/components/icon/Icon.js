@@ -1,40 +1,47 @@
 import React from "react"
-import IconGloomiciousTaglineTravelGuides from "../../icons/icon-gloomicious-tagline-travel-guides.svg"
-import IconGloomiciousTaglinePhotography from "../../icons/icon-gloomicious-tagline-photography.svg"
-import IconGloomicious from "../../icons/icon-gloomicious.svg"
+import "./Icon.scss"
+import GloomiciousCard from "../../icons/icon-gloomicious-card.svg"
+import Gloomicious from "../../icons/icon-gloomicious.svg"
 import Icon500px from "../../icons/icon-500px.svg"
-import IconArrowLeft from "../../icons/icon-arrow-left.svg"
-import IconArrowRight from "../../icons/icon-arrow-right.svg"
-import IconBehance from "../../icons/icon-behance.svg"
-import IconChrevronLeft from "../../icons/icon-chevron-left.svg"
-import IconChrevronRight from "../../icons/icon-chevron-right.svg"
-import IconCross from "../../icons/icon-cross.svg"
-import IconInstagram from "../../icons/icon-instagram.svg"
-import IconMail from "../../icons/icon-mail.svg"
-import IconMoon from "../../icons/icon-moon.svg"
-import IconPinterest from "../../icons/icon-pinterest.svg"
-import IconSun from "../../icons/icon-sun.svg"
-import IconYoutube from "../../icons/icon-youtube.svg"
+import ArrowLeft from "../../icons/icon-arrow-left.svg"
+import ArrowRight from "../../icons/icon-arrow-right.svg"
+import Behance from "../../icons/icon-behance.svg"
+import ChrevronLeft from "../../icons/icon-chevron-left.svg"
+import ChrevronRight from "../../icons/icon-chevron-right.svg"
+import Cross from "../../icons/icon-cross.svg"
+import Instagram from "../../icons/icon-instagram.svg"
+import Mail from "../../icons/icon-mail.svg"
+import Moon from "../../icons/icon-moon.svg"
+import Pinterest from "../../icons/icon-pinterest.svg"
+import Sun from "../../icons/icon-sun.svg"
+import Youtube from "../../icons/icon-youtube.svg"
 
 export default function Icon({ name, className }) {
   const components = {
-    "Logo Gloomicious": IconGloomicious,
-    "Logo Gloomicious Tagline Photography": IconGloomiciousTaglinePhotography,
-    "Logo Gloomicious Tagline Travel Guides": IconGloomiciousTaglineTravelGuides,
+    "logo gloomicious": Gloomicious,
+    "logo gloomicious card": GloomiciousCard,
     "500px": Icon500px,
-    "Arrow Left": IconArrowLeft,
-    "Arrow Right": IconArrowRight,
-    "Chevron Left": IconChrevronLeft,
-    "Chevron Right": IconChrevronRight,
-    Behance: IconBehance,
-    Cross: IconCross,
-    Instagram: IconInstagram,
-    Mail: IconMail,
-    Moon: IconMoon,
-    Pinterest: IconPinterest,
-    Sun: IconSun,
-    YouTube: IconYoutube,
+    "arrow left": ArrowLeft,
+    "arrow right": ArrowRight,
+    "chevron left": ChrevronLeft,
+    "chevron right": ChrevronRight,
+    behance: Behance,
+    cross: Cross,
+    instagram: Instagram,
+    mail: Mail,
+    moon: Moon,
+    pinterest: Pinterest,
+    sun: Sun,
+    youtube: Youtube,
   }
   const TagName = components[name]
-  return <>{TagName ? <TagName className={className} /> : null}</>
+  return (
+    <div
+      className={`icon${name.includes("circle") ? " icon--circle" : ""}${
+        className ? ` ${className}` : ""
+      }`}
+    >
+      {TagName ? <TagName /> : null}
+    </div>
+  )
 }

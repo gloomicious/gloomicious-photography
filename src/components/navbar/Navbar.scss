@@ -2,10 +2,10 @@
 
 .navbar {
   $p: &;
+  position: relative;
   margin-top: $spacing-lg;
   margin-bottom: $spacing-xxl;
   padding-bottom: $spacing-xs;
-  border-bottom: 1px solid $dark;
   @media screen and (min-width: $screen-md) {
     display: flex;
     align-items: center;
@@ -14,14 +14,7 @@
   }
 
   &.dark {
-    border-bottom: 1px solid $light;
-
     #{$p}__logo {
-      border-bottom: 1px solid $light;
-      @media screen and (min-width: $screen-md) {
-        border-bottom: none;
-      }
-
       &:hover svg {
         fill: $primary;
       }
@@ -43,7 +36,9 @@
 
   &__theme-toggle {
     &--mobile {
-      top: -3.75em;
+      position: absolute;
+      top: 0;
+      right: 0;
       @media screen and (min-width: $screen-md) {
         display: none;
       }
@@ -53,6 +48,7 @@
       display: none;
       @media screen and (min-width: $screen-md) {
         display: block;
+        margin-left: $spacing-lg;
       }
     }
   }
@@ -61,7 +57,7 @@
     display: flex;
     justify-content: space-between;
     @media screen and (min-width: $screen-md) {
-      display: block;
+      align-items: center;
     }
   }
 
@@ -75,36 +71,31 @@
   }
 
   &__logo {
-    display: block;
+    display: flex;
+    align-items: center;
+    width: fit-content;
     margin-bottom: $spacing-xs;
-    padding-bottom: $spacing-sm;
-    border-bottom: 1px solid $dark;
     font-weight: $font-bold;
     text-decoration: none;
     color: inherit;
     @media screen and (min-width: $screen-md) {
-      margin: 0;
-      padding: 0;
-      border-bottom: none;
+      margin-bottom: initial;
     }
 
     &:hover {
       svg {
-        fill: $primary;
+        fill: $primary-light;
       }
     }
 
-    svg {
-      float: left;
-      width: 1.5em;
+    &__icon {
       margin-right: $spacing-xxs;
-      fill: $dark;
-      transition: $transition-fast;
-    }
 
-    span {
-      display: block;
-      width: 15em;
+      svg {
+        width: 1.5em;
+        fill: $primary;
+        transition: $transition-fast;
+      }
     }
   }
 

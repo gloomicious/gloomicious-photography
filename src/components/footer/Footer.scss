@@ -4,17 +4,12 @@
   margin-top: $spacing-xxl;
   margin-bottom: $spacing-lg;
   padding-top: $spacing-sm;
-  border-top: 1px solid $dark;
   text-align: center;
   @media screen and (min-width: $screen-md) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
-  }
-
-  &.dark {
-    border-top: 1px solid $light;
   }
 
   &--wide {
@@ -31,63 +26,49 @@
   }
 
   &__copyright {
-    margin-bottom: $spacing-xs;
-    font-weight: $font-bold;
+    margin-bottom: $spacing-sm;
     @media screen and (min-width: $screen-md) {
-      margin: 0;
+      margin-bottom: initial;
     }
   }
 
-  &__links {
-    &__social {
+  &__page-links {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    @media screen and (min-width: $screen-md) {
+      flex-flow: inherit;
+    }
+
+    &__container {
       display: flex;
       justify-content: space-evenly;
+      width: 50%;
       margin-top: $spacing-xs;
       @media screen and (min-width: $screen-md) {
-        float: right;
-        display: block;
-        margin: 0;
+        justify-content: initial;
+        width: initial;
+      margin-top: initial;
+
+        &:not(:last-of-type) {
+          margin-right: $spacing-sm;
+        }
       }
     }
-  }
 
-  &__link {
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    transition: $transition-fast;
-
-    &:hover {
-      color: $gray-2;
-    }
-
-    &:not(:first-of-type) {
-      margin-left: $spacing-md;
-      @media screen and (min-width: $screen-md) {
-        margin-left: $spacing-lg;
+    &__link {
+      &:not(:last-child) {
+        @media screen and (min-width: $screen-md) {
+          margin-right: $spacing-sm;
+        }
       }
-    }
-  }
 
-  &__social-link {
-    position: relative;
-    width: 1.25em;
-    @media screen and (min-width: $screen-md) {
-      margin-left: $spacing-lg;
-    }
+      svg {
+        transition: $transition-fast;
 
-    &:last-of-type {
-      margin-right: $spacing-sm;
-    }
-
-    svg {
-      position: absolute;
-      left: 0;
-      width: 1.25em;
-      transition: $transition-fast;
-
-      &:hover {
-        fill: $gray-2;
+        &:hover {
+          fill: $gray-3;
+        }
       }
     }
   }

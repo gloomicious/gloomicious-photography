@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.icon {
+  position: relative;
+  min-width: 1em;
+  min-height: 2em;
+  vertical-align: middle;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1em;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &--circle {
+    svg {
+      width: 1.5em;
+    }
+  }
+}

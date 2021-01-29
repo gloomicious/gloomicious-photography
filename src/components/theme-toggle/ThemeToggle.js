@@ -11,7 +11,7 @@ const ThemeToggle = ({ theme, className }) => {
       }
       role="presentation"
     >
-      {theme.name === "light" ? <Icon name="Moon" /> : <Icon name="Sun" />}
+      {theme.name === "light" ? <Icon name="moon" /> : <Icon name="sun" />}
     </div>
   )
 }

@@ -18,16 +18,28 @@ export default function Footer({ size, forceLight, content }) {
       <div className="footer__copyright">
         © {new Date().getFullYear()} {data.copyright}
       </div>
-      <div className="footer__links">
-        {data.links.map((item, index) => (
-          <Link to={item.link} className="footer__link" key={index}>
-            {item.label}
-          </Link>
-        ))}
+      <div className="footer__page-links">
+        {data.links && (
+          <div className="footer__page-links__container">
+            {data.links.map((item, index) => (
+              <Link
+                to={item.link}
+                className="footer__page-links__link"
+                key={index}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
         {data.social && (
-          <div className="footer__links__social">
+          <div className="footer__page-links__container">
             {data.social.map((item, index) => (
-              <a href={item.link} className="footer__social-link" key={index}>
+              <a
+                href={item.link}
+                className="footer__page-links__link"
+                key={index}
+              >
                 <Icon name={item.icon} />
               </a>
             ))}
