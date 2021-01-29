@@ -36,6 +36,7 @@ const Image = props => (
             props.className ? props.className : ""
           } ${props.size ? `background-image--${props.size}` : ""}`}
         >
+          <div className="background-image__overlay"></div>
           <BackgroundImage
             className="background-image__photo"
             alt={props.alt}
