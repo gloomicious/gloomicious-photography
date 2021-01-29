@@ -20,13 +20,16 @@ const Layout = ({ location, children }) => {
       <ThemeContext.Consumer>
         {theme => (
           <>
-            {canRender && document.body.classList.add("dark")}
+            {canRender &&
+              (theme.name === "dark"
+                ? document.body.classList.add("dark")
+                : document.body.classList.remove("dark"))}
             <div className="content-wrapper">
               <header>
-                <Navbar theme={theme} size="wide" forceLight="true" />
+                <Navbar theme={theme} size="wide" />
               </header>
               <main>{children}</main>
-              <Footer size="wide" forceLight="true" />
+              <Footer size="wide" />
             </div>
           </>
         )}

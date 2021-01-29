@@ -15,7 +15,6 @@ export const IndexPageTemplate = ({ image, text, buttonLabel, buttonLink }) => (
           <Button
             label={buttonLabel}
             link={buttonLink}
-            forceLight="true"
             className="section__button"
           />
         )}

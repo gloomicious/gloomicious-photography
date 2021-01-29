@@ -13,7 +13,6 @@ export default function Button({
   onClick,
   target,
   rel,
-  forceLight,
   className,
 }) {
   const theme = React.useContext(ThemeContext)
@@ -25,7 +24,7 @@ export default function Button({
           to={link}
           className={`button${size ? ` button--${size} ` : " "}${
             style ? ` button--${style} ` : " "
-          }${forceLight ? "dark" : theme.name} `}
+          }${theme.name} `}
         >
           {icon && (
             <span className="button__icon">
@@ -44,7 +43,7 @@ export default function Button({
         href={link}
         className={`button${size ? ` button--${size} ` : " "}${
           style ? ` button--${style} ` : " "
-        }${forceLight ? "dark" : theme.name} `}
+        }${theme.name} `}
         target={target && target}
         rel={rel && rel}
       >
@@ -63,7 +62,7 @@ export default function Button({
       <button
         className={`button${size ? ` button--${size}` : ""}${
           style ? ` button--${style}` : ""
-        } ${forceLight ? "dark" : theme.name}`}
+        } ${theme.name}`}
         onClick={onClick}
       >
         {label && <span className="button__label">{label}</span>}

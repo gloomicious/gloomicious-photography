@@ -5,16 +5,12 @@ import "./Footer.scss"
 import dataFromFile from "../../settings/footer.yml"
 import Icon from "./../icon/Icon"
 
-export default function Footer({ size, forceLight, content }) {
+export default function Footer({ size, content }) {
   const theme = React.useContext(ThemeContext)
   let data = content ? content : dataFromFile
 
   return (
-    <footer
-      className={`footer ${forceLight ? "dark" : theme.name}${
-        size ? ` footer--${size}` : ""
-      }`}
-    >
+    <footer className={`footer ${theme.name}${size ? ` footer--${size}` : ""}`}>
       <div className="footer__copyright">
         © {new Date().getFullYear()} {data.copyright}
       </div>
