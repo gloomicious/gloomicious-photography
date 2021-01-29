@@ -12,8 +12,8 @@
   }
 
   &--right {
-    text-align: right;
     align-items: flex-end;
+    text-align: right;
   }
 
   &--wide {
@@ -38,7 +38,6 @@
 
     &:not(:last-of-type) {
       margin-bottom: $spacing-lg;
-
       @media screen and (min-width: $screen-md) {
         margin: 0;
         margin-right: $spacing-sm;
@@ -47,7 +46,6 @@
 
     &--50 {
       align-self: center;
-
       @media screen and (min-width: $screen-md) {
         flex: 1;
       }

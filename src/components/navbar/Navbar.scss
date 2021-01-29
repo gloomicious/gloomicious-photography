@@ -6,7 +6,6 @@
   margin-bottom: $spacing-xxl;
   padding-bottom: $spacing-xs;
   border-bottom: 1px solid $dark;
-
   @media screen and (min-width: $screen-md) {
     display: flex;
     align-items: center;
@@ -19,7 +18,6 @@
 
     #{$p}__logo {
       border-bottom: 1px solid $light;
-
       @media screen and (min-width: $screen-md) {
         border-bottom: none;
       }
@@ -46,7 +44,6 @@
   &__theme-toggle {
     &--mobile {
       top: -3.75em;
-
       @media screen and (min-width: $screen-md) {
         display: none;
       }
@@ -54,7 +51,6 @@
 
     &--desktop {
       display: none;
-
       @media screen and (min-width: $screen-md) {
         display: block;
       }
@@ -64,7 +60,6 @@
   &__links {
     display: flex;
     justify-content: space-between;
-
     @media screen and (min-width: $screen-md) {
       display: block;
     }
@@ -81,12 +76,17 @@
 
   &__logo {
     display: block;
-    color: inherit;
-    text-decoration: none;
-    font-weight: $font-bold;
     margin-bottom: $spacing-xs;
     padding-bottom: $spacing-sm;
     border-bottom: 1px solid $dark;
+    font-weight: $font-bold;
+    text-decoration: none;
+    color: inherit;
+    @media screen and (min-width: $screen-md) {
+      margin: 0;
+      padding: 0;
+      border-bottom: none;
+    }
 
     &:hover {
       svg {
@@ -94,17 +94,11 @@
       }
     }
 
-    @media screen and (min-width: $screen-md) {
-      margin: 0;
-      padding: 0;
-      border-bottom: none;
-    }
-
     svg {
-      width: 1.5em;
       float: left;
-      fill: $dark;
+      width: 1.5em;
       margin-right: $spacing-xxs;
+      fill: $dark;
       transition: $transition-fast;
     }
 
@@ -115,9 +109,8 @@
   }
 
   &__link {
-    color: inherit;
     text-decoration: none;
-
+    color: inherit;
     @media screen and (min-width: $screen-md) {
       &:not(:first-of-type) {
         margin-left: $spacing-lg;

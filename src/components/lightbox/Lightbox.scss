@@ -22,8 +22,8 @@
   $p: &;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 1100;
   width: 100%;
   height: 100%;
@@ -32,8 +32,8 @@
 
   &.dark {
     #{$p}__content {
-      color: $light;
       background-color: $gray-5;
+      color: $light;
     }
 
     #{$p}__close-button {
@@ -99,10 +99,10 @@
   }
 
   &__title {
-    font-size: $font-sm;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 10%;
+    font-size: $font-sm;
   }
 }

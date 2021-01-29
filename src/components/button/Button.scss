@@ -1,26 +1,22 @@
 @import "styles/variables.scss";
 
-$button-size-sm: 30px;
-$button-size-md: 40px;
-$button-size-lg: 60px;
-
 .button {
   @include not-selectable;
-  @include rounded-edges;
   $p: &;
-  display: inline-block;
   position: relative;
-  font-weight: $font-bold;
-  font-size: $font-xs;
-  text-decoration: none;
-  color: $dark;
+  display: inline-block;
   padding: $spacing-xxs $spacing-xs;
   border: 1px solid $dark;
+  border-radius: $border-radius-sm;
+  font-size: $font-xs;
+  font-weight: $font-bold;
+  text-decoration: none;
+  color: $dark;
   transition: $transition-fast;
 
   &.dark {
-    color: $light;
     border: 1px solid $light;
+    color: $light;
 
     line,
     path {
@@ -28,15 +24,15 @@ $button-size-lg: 60px;
     }
 
     &:hover {
-      color: $dark;
       background-color: $light;
+      color: $dark;
     }
   }
 
   &:hover {
+    background-color: $dark;
     cursor: pointer;
     color: $light;
-    background-color: $dark;
 
     line,
     path {
@@ -55,14 +51,14 @@ $button-size-lg: 60px;
   }
 
   &__label {
-    font-size: $font-xs;
     float: left;
+    font-size: $font-xs;
   }
 
   &__icon {
     float: right;
-    height: $button-size-sm - 10;
     width: 20px;
+    height: $button-size-sm - 10;
     margin-left: 0.5em;
 
     &.gatsby-image-wrapper {

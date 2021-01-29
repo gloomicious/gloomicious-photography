@@ -4,13 +4,12 @@
   @include not-selectable;
   $p: &;
   display: grid;
-  text-align: center;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-auto-rows: auto;
   gap: $spacing-xs;
+  text-align: center;
   transition: $transition-medium;
-
   @media screen and (min-width: $screen-md) {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -18,25 +17,22 @@
   &--full-width {
     position: relative;
     display: block;
-    width: 100%;
-    max-width: $site-width;
     grid-template-rows: auto;
     grid-template-columns: auto;
-    line-height: 0;
     column-count: 1;
     column-gap: $spacing-xs;
-
+    width: 100%;
+    max-width: $site-width;
+    line-height: 0;
     @media screen and (min-width: $screen-md) {
       column-count: 2;
     }
-
     @media screen and (min-width: $screen-lg) {
       column-count: 3;
     }
-
     @media screen and (min-width: $screen-xl) {
-      width: calc(100vw - #{$spacing-sm * 2});
       left: -15.5em;
+      width: calc(100vw - #{$spacing-sm * 2});
     }
 
     #{$p}__caption,
@@ -60,7 +56,6 @@
 
   &--3-columns {
     grid-template-columns: repeat(1, 1fr);
-
     @media screen and (min-width: $screen-md) {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -83,13 +78,12 @@
   &__filters {
     @include not-selectable;
     display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
     flex-flow: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: $spacing-xl;
     padding: 0;
-
+    list-style: none;
     @media screen and (min-width: $screen-md) {
       flex-flow: nowrap;
     }
@@ -102,22 +96,21 @@
       &:before {
         content: "";
         position: absolute;
-        width: 0;
-        height: 0;
         bottom: -0.5em;
         left: 50%;
+        visibility: hidden;
         transform: translateX(-50%);
+        width: 0;
+        height: 0;
         background-color: $primary;
         transition: $transition-medium;
-        visibility: hidden;
       }
 
       &:not(:last-of-type) {
         margin-bottom: $spacing-sm;
-
         @media screen and (min-width: $screen-md) {
-          margin: 0;
           margin-right: $spacing-xl;
+          margin-bottom: 0;
         }
       }
 
@@ -128,9 +121,9 @@
 
       &--active {
         &:before {
+          visibility: visible;
           width: 1.5em;
           height: 2px;
-          visibility: visible;
         }
       }
     }
@@ -139,19 +132,18 @@
   &__item,
   &__image,
   &__overlay {
-    @include rounded-edges;
     width: 100%;
     height: 100%;
+    border-radius: $border-radius-sm;
   }
 
   &__item {
     position: relative;
+    overflow: hidden;
     height: 26vw;
     max-height: 12em;
     text-decoration: none;
-    overflow: hidden;
     transition: $transition-fast;
-
     @media screen and (min-width: $screen-md) {
       height: 22vw;
       max-height: 6em;
@@ -172,8 +164,8 @@
       max-height: 19em;
 
       #{$p}__image-wrapper {
-        height: 50%;
         overflow: hidden;
+        height: 50%;
 
         &:before {
           display: none;
@@ -189,19 +181,19 @@
   }
 
   &__image-wrapper {
-    @include rounded-edges;
     width: 100%;
     height: 100%;
+    border-radius: $border-radius-sm;
     transition: $transition-fast;
 
     &:before {
       content: "";
       position: absolute;
-      z-index: 10;
-      left: 0;
-      right: 0;
       top: 0;
+      right: 0;
       bottom: 0;
+      left: 0;
+      z-index: 10;
       background: rgba($dark, 0.3);
     }
   }
@@ -213,23 +205,23 @@
   }
 
   &__caption {
-    display: none;
     position: absolute;
     z-index: 20;
+    display: none;
 
     &--center {
-      display: block;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      display: block;
     }
 
     &--left {
-      display: block;
       top: initial;
-      left: 2em;
       bottom: 3em;
+      left: 2em;
       transform: translate(-50%, -50%);
+      display: block;
 
       #{$p}__title {
         transform: translate(0);
@@ -251,8 +243,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $light;
     font-weight: $font-bold;
+    color: $light;
   }
 
   &__title {
@@ -261,8 +253,8 @@
   }
 
   &__subtitle {
-    font-size: $font-xs;
     transform: translate(-50%, 100%);
+    font-size: $font-xs;
     text-transform: capitalize;
   }
 

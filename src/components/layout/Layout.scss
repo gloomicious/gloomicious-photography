@@ -2,17 +2,17 @@
 
 body {
   margin: 0;
+  background-color: $light;
   font-family: $font;
-  font-weight: $font-thin;
   font-size: $font-xs;
+  font-weight: $font-thin;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $light;
   color: $dark;
   transition: $transition-fast;
 
   &.dark {
-    background-color: $gray-5;
+    background-color: $background-dark;
     color: $light;
 
     a {
@@ -24,7 +24,7 @@ body {
       color: $primary;
 
       &:hover {
-        color: $secondary;
+        color: $primary-light;
       }
     }
 
@@ -45,12 +45,12 @@ p {
 }
 
 a {
-  color: $dark;
   text-decoration: none;
+  color: $dark;
   transition: $transition-fast;
 
   &:hover {
-    color: $secondary;
+    color: $primary-light;
   }
 }
 
@@ -97,11 +97,11 @@ code {
 
 button {
   display: initial;
-  text-align: unset;
-  background-color: transparent;
   padding: unset;
+  background-color: transparent;
   border-style: none;
   cursor: pointer;
+  text-align: unset;
 
   &:focus {
     outline: none;
@@ -113,14 +113,15 @@ button {
 }
 
 ::selection {
-  background: $primary;
+  background: rgba($primary, 0.25);
 }
+
 ::-moz-selection {
-  background: $primary;
+  background: rgba($primary, 0.25);
 }
 
 .content-wrapper {
+  max-width: $site-width;
   margin: 0 auto;
   padding: 0 $spacing-sm;
-  max-width: $site-width;
 }

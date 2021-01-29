@@ -1,13 +1,27 @@
-// Colors
+//Highlight colors
 $primary: #008bb7;
-$secondary: #006889;
+$primary-light: #3eb9d9;
+$primary-dark: #005c84;
 $gray-1: #eceff0;
 $gray-2: #afb9bb;
 $gray-3: #768184;
 $gray-4: #424a4d;
 $gray-5: #161a1b;
+
+// Base colors
 $light: #ffffff;
-$dark: #000000;
+$dark: #121212;
+$black: #000000;
+$surface-light: $light;
+$surface-dark-1: #4c4c4c;
+$surface-dark-2: #454545;
+$surface-dark-3: #3d3d3d;
+$surface-dark-4: #353535;
+$surface-dark-5: #2b2b2b;
+$background-light: $light;
+$background-dark: $gray-5;
+$error-light: #cf6679;
+$error-dark: #b00020;
 
 // Typography
 $font: "Inter", sans-serif;
@@ -24,9 +38,16 @@ $font-lg: 1.5rem; //24px
 $font-xl: 2rem; //32px
 $font-xxl: 3rem; //48px
 
-// Page width
+// Sizes
 $site-width: 1200px;
 $content-width: 700px;
+$button-size-sm: 30px;
+$button-size-md: 40px;
+$button-size-lg: 60px;
+$border-radius-sm: 4px;
+$boder-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-round: 100px;
 
 // Spacing
 $spacing-xxs: 0.5em; //8px
@@ -46,59 +67,14 @@ $screen-xxl: 1600px;
 $screen-xxxl: 2000px;
 
 // Transitions
-$transition-slow: all 0.6s ease-in-out;
-$transition-medium: all 0.4s ease-in-out;
-$transition-fast: all 0.2s ease-in-out;
+$transition-extra-slow: all 0.8s ease-out, all 0.6s ease-out;
+$transition-slow: all 0.3s ease-out, all 0.25s ease-out;
+$transition-medium: all 0.25s ease-out, all 0.2s ease-out;
+$transition-fast: all 0.1s ease-out;
 
 // Mixins
-@mixin rounded-edges() {
-  border-radius: 4px;
-}
-
 @mixin box-shadow($color: $gray-3, $alpha: 0.2) {
   box-shadow: 0px 10px 25px rgba($color, $alpha);
-}
-
-@mixin hover-color($color: $primary) {
-  transition: $transition-fast;
-
-  line,
-  path {
-    transition: $transition-fast;
-  }
-
-  &:hover {
-    color: $color;
-    transition: $transition-fast;
-
-    line,
-    path {
-      fill: $color;
-      transition: $transition-fast;
-    }
-  }
-}
-
-@mixin hover-bg-color($color-bg: $primary, $color-fg: $light) {
-  transition: $transition-fast;
-
-  line,
-  path {
-    transition: $transition-fast;
-  }
-
-  &:hover {
-    color: $color-fg;
-    background-color: $color-bg;
-    box-shadow: 0px 10px 25px rgba($color-bg, 0.5);
-    transition: $transition-fast;
-
-    line,
-    path {
-      fill: $color-fg;
-      transition: $transition-fast;
-    }
-  }
 }
 
 @mixin not-selectable() {
