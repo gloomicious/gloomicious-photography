@@ -1,11 +1,10 @@
 import CMS from "netlify-cms-app"
 
-import IndexPagePreview from "./preview-templates/IndexPagePreview"
 import FollowupPagePreview from "./preview-templates/FollowupPagePreview"
 import NavbarPreview from "./preview-templates/NavbarPreview"
 import FooterPreview from "./preview-templates/FooterPreview"
 
-CMS.registerPreviewTemplate("index", IndexPagePreview)
+CMS.registerPreviewTemplate("index", FollowupPagePreview)
 CMS.registerPreviewTemplate("explore", FollowupPagePreview)
 CMS.registerPreviewTemplate("collections", FollowupPagePreview)
 CMS.registerPreviewTemplate("journal", FollowupPagePreview)

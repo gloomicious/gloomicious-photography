@@ -21,6 +21,7 @@ project:
     - { label: SEO description, name: seoDescription, widget: string }
     - { label: URL path (with leading slash), name: path, widget: string }
     - { label: Page image, name: pageImage, widget: image, required: false }
+    - { label: Show page image, name: showPageImage, widget: select, options: [full-page, page-header], required: false }
     - { label: Last edited, name: date, widget: datetime, date_format: YYYY-MM-DD }
     - { label: Category, name: category, widget: select, required: false, options: [america, asia, europe, desert, tropics, forest, urban, growth, personal, photography, sustainability, travel] }
     - {
@@ -87,23 +88,8 @@ project:
 
 collections:
   - name: pages
-    label: General pages
+    label: Overview pages
     files:
-      - file: src/pages/index.md
-        label: Landing page
-        name: index
-        fields:
-          - { label: Template Key, name: templateKey, widget: hidden, default: index-page }
-          - { label: SEO title, name: seoTitle, widget: string }
-          - { label: SEO description, name: seoDescription, widget: string }
-          - { label: Page image, name: image, widget: image }
-          - { label: Page text, name: text, widget: string }
-          - { label: Button label, name: buttonLabel, widget: string, required: false }
-          - { label: Button link, name: buttonLink, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
-      - file: src/pages/explore.md
-        label: Explore
-        name: explore
-        fields: *followupContent
       - file: src/pages/collections.md
         label: Collections
         name: collections
@@ -184,7 +170,7 @@ collections:
               widget: list,
               fields:
                 [
-                  { label: Icon, name: icon, widget: select, required: false, options: [500px, Behance, Instagram, Mail, Pinterest, YouTube] },
+                  { label: Icon, name: icon, widget: select, required: false, options: [500px, behance, instagram, mail, pinterest, youtube] },
                   { label: Link, name: link, widget: string, required: false }
                 ]
             }

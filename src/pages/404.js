@@ -4,7 +4,7 @@ import SEO from "../components/seo/Seo"
 import Section from "../components/section/Section"
 
 const NotFoundPage = () => (
-  <Layout location="Followup">
+  <Layout>
     <SEO
       title="Destination Not Found"
       description="404 Error - This page doesn't exist here."

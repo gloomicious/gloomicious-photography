@@ -4,9 +4,14 @@ seoTitle: Collections
 seoDescription: description
 path: /collections
 pageTitle: Collections
+pageImage: a7_01040.jpg
+showPageImage: page-head
 date: 2020-12-25T19:41:37.318Z
 section:
-  - type: title-text
+  - type: title
+    title: Collections
+    alignment: center
+  - type: text
     title: Collections
     alignment: center
     text: >-
@@ -17,9 +22,6 @@ section:
 
 
       Experience the world through my lens by filtering continents, countries and themes to not only display specific places on this planet, but also pay tribute to its diverse environments from desert lands to tropical coasts and urban spaces.
-
-
-      Or if you prefer to get an overview over what I've captured so far - I picked my favorite photos in a [dedicated collection](/explore). Feel free to explore!
     buttonLink: ""
     buttonLabel: ""
   - type: page-list

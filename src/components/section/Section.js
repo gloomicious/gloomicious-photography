@@ -21,6 +21,8 @@ export default function Section({
 }) {
   function chooseContent(type) {
     switch (type) {
+      case "title":
+        return Title()
       case "text":
         return Text()
       case "title-text":
@@ -40,8 +42,34 @@ export default function Section({
     }
   }
 
+  function Title() {
+    return (
+      <>
+        {title && <h1 className="section__title">{title}</h1>}
+        {buttonLabel && buttonLink && (
+          <Button
+            label={buttonLabel}
+            link={buttonLink}
+            className="section__button"
+          />
+        )}
+      </>
+    )
+  }
+
   function Text() {
-    return <>{text && <MarkdownContent content={text} />}</>
+    return (
+      <>
+        {text && <MarkdownContent content={text} />}
+        {buttonLabel && buttonLink && (
+          <Button
+            label={buttonLabel}
+            link={buttonLink}
+            className="section__button"
+          />
+        )}
+      </>
+    )
   }
 
   function TitleText() {
@@ -49,7 +77,7 @@ export default function Section({
       <>
         {title && <h1 className="section__title">{title}</h1>}
         {text && <MarkdownContent content={text} />}
-        {buttonLabel && (
+        {buttonLabel && buttonLink && (
           <Button
             label={buttonLabel}
             link={buttonLink}
@@ -66,7 +94,7 @@ export default function Section({
         {subtitle && <h5 className="section__subtitle">{subtitle}</h5>}
         {title && <h1 className="section__title">{title}</h1>}
         {text && <MarkdownContent content={text} />}
-        {buttonLabel && (
+        {buttonLabel && buttonLink && (
           <Button
             label={buttonLabel}
             link={buttonLink}
@@ -83,7 +111,7 @@ export default function Section({
         <div className="section__col section__col--50">
           {title && <h1 className="section__title">{title}</h1>}
           {text && <MarkdownContent content={text} />}
-          {buttonLabel && (
+          {buttonLabel && buttonLink && (
             <Button
               label={buttonLabel}
               link={buttonLink}
@@ -121,12 +149,20 @@ export default function Section({
   }
 
   return (
-    <section
-      className={`section${alignment ? ` section--${alignment}` : ""}${
-        size ? ` section--${size}` : ""
-      }`}
-    >
-      {chooseContent(type)}
-    </section>
+    <>
+      {title && (
+        <span
+          id={title?.toString().toLowerCase().replaceAll(" ", "-")}
+          className="section__anchor"
+        ></span>
+      )}
+      <section
+        className={`section${alignment ? ` section--${alignment}` : ""}${
+          size ? ` section--${size}` : ""
+        }`}
+      >
+        {size === "page-head" ? Title() : chooseContent(type)}
+      </section>
+    </>
   )
 }

@@ -79,7 +79,7 @@ export default function Button({
     <div className={`button__wrapper ${className ? className : ""}`}>
       {onClick
         ? Button()
-        : (rel && target) || link.includes("mailto")
+        : (rel && target) || link.includes("mailto") || link.includes("#")
         ? ExternalLink()
         : InternalLink()}
     </div>

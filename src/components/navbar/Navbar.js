@@ -6,23 +6,22 @@ import ThemeToggle from "./../theme-toggle/ThemeToggle"
 import Icon from "../icon/Icon"
 
 export default function Navbar({ theme, size, content }) {
-  let data = content ? content : dataFromFile,
-    style = theme ? theme : { name: "light" }
+  let data = content ? content : dataFromFile
 
   return (
-    <nav className={`navbar ${style.name}${size ? ` navbar--${size}` : ""}`}>
+    <nav className={`navbar ${theme.name}${size ? ` navbar--${size}` : ""}`}>
       <Link to="/" className="navbar__logo">
         <Icon name="logo gloomicious" className="navbar__logo__icon" />
         <span className="navbar__logo__text">gloomicious</span>
       </Link>
-      <ThemeToggle theme={style} className="navbar__theme-toggle--mobile" />
+      <ThemeToggle theme={theme} className="navbar__theme-toggle--mobile" />
       <div className="navbar__links">
         {data.links.map((item, index) => (
           <Link to={item.link} className="navbar__link" key={index}>
             {item.label}
           </Link>
         ))}
-        <ThemeToggle theme={style} className="navbar__theme-toggle--desktop" />
+        <ThemeToggle theme={theme} className="navbar__theme-toggle--desktop" />
       </div>
     </nav>
   )

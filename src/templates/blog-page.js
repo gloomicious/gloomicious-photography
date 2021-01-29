@@ -6,7 +6,7 @@ import SEO from "../components/seo/Seo"
 import BackgroundImage from "../components/background-image/BackgroundImage"
 import Section from "../components/section/Section"
 
-export const FollowupPageTemplate = ({ pageImage, showPageImage, section }) => (
+export const BlogPageTemplate = ({ pageImage, showPageImage, section }) => (
   <Layout>
     {pageImage && showPageImage ? (
       <>
@@ -59,11 +59,11 @@ export const FollowupPageTemplate = ({ pageImage, showPageImage, section }) => (
   </Layout>
 )
 
-FollowupPageTemplate.propTypes = {
+BlogPageTemplate.propTypes = {
   section: PropTypes.array,
 }
 
-const FollowupPage = ({ data }) => {
+const BlogPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
     <>
@@ -71,7 +71,7 @@ const FollowupPage = ({ data }) => {
         title={frontmatter.seoTitle}
         description={frontmatter.seoDescription}
       />
-      <FollowupPageTemplate
+      <BlogPageTemplate
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
         section={frontmatter.section}
@@ -80,7 +80,7 @@ const FollowupPage = ({ data }) => {
   )
 }
 
-FollowupPage.propTypes = {
+BlogPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -88,12 +88,12 @@ FollowupPage.propTypes = {
   }),
 }
 
-export default FollowupPage
+export default BlogPage
 
 export const pageQuery = graphql`
-  query FollowupPageTemplate($path: String!) {
+  query BlogPageTemplate($path: String!) {
     markdownRemark(
-      frontmatter: { path: { eq: $path }, templateKey: { eq: "followup-page" } }
+      frontmatter: { path: { eq: $path }, templateKey: { eq: "blog-page" } }
     ) {
       frontmatter {
         path

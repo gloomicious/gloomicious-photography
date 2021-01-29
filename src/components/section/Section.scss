@@ -1,6 +1,7 @@
 @import "styles/variables.scss";
 
 .section {
+  $p: &;
   padding: 0;
 
   &:not(:last-of-type) {
@@ -22,6 +23,36 @@
     transform: translateX(-50%);
     width: calc(100vw - #{$spacing-sm * 2});
     max-width: $site-width;
+  }
+
+  &--full-page,
+  &--page-head {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    margin-top: -235px;
+    @media screen and (min-width: $screen-md) {
+      margin-top: -208px;
+    }
+
+    #{$p}__title {
+      margin-bottom: 0;
+    }
+  }
+
+  &--full-page {
+    height: 100vh;
+  }
+
+  &--page-head {
+    height: 40vh;
+
+    #{$p}__title {
+      margin-top: $spacing-md;
+      @media screen and (min-width: $screen-md) {
+        margin-top: $spacing-xs;
+      }
+    }
   }
 
   &__row {
@@ -50,6 +81,11 @@
         flex: 1;
       }
     }
+  }
+
+  &__anchor {
+    position: absolute;
+    bottom: 0;
   }
 
   &__title,
