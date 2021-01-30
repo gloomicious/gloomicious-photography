@@ -1,7 +1,8 @@
 import React from "react"
+import PropTypes from "prop-types"
 import showdown from "showdown"
 
-export default function MarkdownContent({ content, className }) {
+function MarkdownContent({ content, className }) {
   const converter = new showdown.Converter()
 
   return (
@@ -11,3 +12,10 @@ export default function MarkdownContent({ content, className }) {
     />
   )
 }
+
+MarkdownContent.propTypes = {
+  content: PropTypes.string,
+  className: PropTypes.string,
+}
+
+export default MarkdownContent

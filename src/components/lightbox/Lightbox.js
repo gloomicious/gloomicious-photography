@@ -1,10 +1,11 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import "./Lightbox.scss"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import Image from "../image/Image"
 import Icon from "../icon/Icon"
 
-export default function Lightbox({ open, setOpen, item }) {
+function Lightbox({ open, setOpen, item }) {
   const theme = React.useContext(ThemeContext)
   const [parentVisible, setParentVisible] = useState(true)
   const [imageVisible, setImageVisible] = useState(false)
@@ -61,3 +62,11 @@ export default function Lightbox({ open, setOpen, item }) {
     </div>
   )
 }
+
+Lightbox.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  items: PropTypes.object,
+}
+
+export default Lightbox

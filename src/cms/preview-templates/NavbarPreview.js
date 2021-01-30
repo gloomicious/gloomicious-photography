@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Navbar from "../../components/navbar/Navbar"
 
-const NavbarPreview = ({ entry }) => {
+function NavbarPreview({ entry }) {
   const data = entry.getIn(["data"]).toJS()
 
   if (data) {

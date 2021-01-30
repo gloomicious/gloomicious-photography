@@ -1,11 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import "./Footer.scss"
 import dataFromFile from "../../settings/footer.yml"
 import Icon from "./../icon/Icon"
 
-export default function Footer({ size, content }) {
+function Footer({ size, content }) {
   const theme = React.useContext(ThemeContext)
   let data = content ? content : dataFromFile
 
@@ -45,3 +46,10 @@ export default function Footer({ size, content }) {
     </footer>
   )
 }
+
+Footer.propTypes = {
+  size: PropTypes.string,
+  content: PropTypes.object,
+}
+
+export default Footer

@@ -1,11 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import "./Navbar.scss"
 import dataFromFile from "../../settings/navbar.yml"
 import ThemeToggle from "./../theme-toggle/ThemeToggle"
 import Icon from "../icon/Icon"
 
-export default function Navbar({ theme, size, content }) {
+function Navbar({ theme, size, content }) {
   let data = content ? content : dataFromFile
 
   return (
@@ -26,3 +27,11 @@ export default function Navbar({ theme, size, content }) {
     </nav>
   )
 }
+
+Navbar.propTypes = {
+  theme: PropTypes.object,
+  size: PropTypes.string,
+  content: PropTypes.object,
+}
+
+export default Navbar

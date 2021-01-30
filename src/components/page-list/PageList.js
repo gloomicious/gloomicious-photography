@@ -1,8 +1,9 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Gallery from "../gallery/Gallery"
 
-export default function PageList({ pageType }) {
+function PageList({ pageType }) {
   let type = pageType ? pageType : "none"
 
   return (
@@ -91,7 +92,7 @@ export default function PageList({ pageType }) {
                 page: pagePath,
                 category: pageCategory,
                 image: page.node.frontmatter.pageImage,
-                date: page.node.frontmatter.date
+                date: page.node.frontmatter.date,
               })
             })
             return (
@@ -109,3 +110,9 @@ export default function PageList({ pageType }) {
     />
   )
 }
+
+PageList.propTypes = {
+  pageType: PropTypes.string,
+}
+
+export default PageList

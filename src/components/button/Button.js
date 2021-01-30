@@ -1,10 +1,11 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import "./Button.scss"
 import Icon from "../icon/Icon"
 
-export default function Button({
+function Button({
   size,
   style,
   icon,
@@ -26,12 +27,7 @@ export default function Button({
             style ? ` button--${style} ` : " "
           }${theme.name} `}
         >
-          {icon && (
-            <span className="button__icon">
-              <Icon name={icon} />
-            </span>
-          )}
-          {label && <span className="button__label">{label}</span>}
+          {ButtonContent()}
         </Link>
       </>
     )
@@ -47,17 +43,12 @@ export default function Button({
         target={target && target}
         rel={rel && rel}
       >
-        {label && <span className="button__label">{label}</span>}
-        {icon && (
-          <span className="button__icon">
-            <Icon name={icon} />
-          </span>
-        )}
+        {ButtonContent()}
       </a>
     )
   }
 
-  function Button() {
+  function ActionButton() {
     return (
       <button
         className={`button${size ? ` button--${size}` : ""}${
@@ -65,23 +56,45 @@ export default function Button({
         } ${theme.name}`}
         onClick={onClick}
       >
+        {ButtonContent()}
+      </button>
+    )
+  }
+
+  function ButtonContent() {
+    return (
+      <>
         {label && <span className="button__label">{label}</span>}
         {icon && (
           <span className="button__icon">
             <Icon name={icon} />
           </span>
         )}
-      </button>
+      </>
     )
   }
 
   return (
     <div className={`button__wrapper ${className ? className : ""}`}>
       {onClick
-        ? Button()
+        ? ActionButton()
         : (rel && target) || link.includes("mailto") || link.includes("#")
         ? ExternalLink()
         : InternalLink()}
     </div>
   )
 }
+
+Button.propTypes = {
+  size: PropTypes.string,
+  style: PropTypes.string,
+  icon: PropTypes.string,
+  label: PropTypes.string,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
+  target: PropTypes.string,
+  rel: PropTypes.string,
+  className: PropTypes.string,
+}
+
+export default Button

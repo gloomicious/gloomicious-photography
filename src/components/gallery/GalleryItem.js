@@ -1,10 +1,11 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import BackgroundImage from "../background-image/BackgroundImage"
+import BackgroundImage from "../image-box/ImageBox"
 import Image from "../image/Image"
 import Lightbox from "../lightbox/Lightbox"
 
-export default function GalleryItem({ item, size, imageLabels }) {
+function GalleryItem({ item, size, imageLabels }) {
   const [lightboxOpened, setLightboxOpened] = useState(false)
 
   function formatDate(date) {
@@ -26,8 +27,8 @@ export default function GalleryItem({ item, size, imageLabels }) {
     const month = monthNames[dateComplete.getMonth()]
     const year = dateComplete.getFullYear()
     const day = dateComplete.getDate()
-    const formattedDate = [day,month,year].join(" ")
-    return(formattedDate)
+    const formattedDate = [day, month, year].join(" ")
+    return formattedDate
   }
 
   function LinkToPage() {
@@ -50,8 +51,14 @@ export default function GalleryItem({ item, size, imageLabels }) {
         )}
         {imageLabels && imageLabels.includes("below") && (
           <div className="gallery__description">
-            {item.date && <p className="gallery__description__date">{formatDate(item.date)}</p>}
-            {item.title && <h3 className="gallery__description__title">{item.title}</h3>}
+            {item.date && (
+              <p className="gallery__description__date">
+                {formatDate(item.date)}
+              </p>
+            )}
+            {item.title && (
+              <h3 className="gallery__description__title">{item.title}</h3>
+            )}
           </div>
         )}
       </Link>
@@ -104,3 +111,11 @@ export default function GalleryItem({ item, size, imageLabels }) {
     </>
   )
 }
+
+GalleryItem.propTypes = {
+  item: PropTypes.object,
+  size: PropTypes.string,
+  imageLabels: PropTypes.string,
+}
+
+export default GalleryItem

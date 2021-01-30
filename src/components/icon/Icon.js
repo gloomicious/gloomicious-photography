@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./Icon.scss"
 import GloomiciousCard from "../../icons/icon-gloomicious-card.svg"
 import Gloomicious from "../../icons/icon-gloomicious.svg"
@@ -16,7 +17,7 @@ import Pinterest from "../../icons/icon-pinterest.svg"
 import Sun from "../../icons/icon-sun.svg"
 import Youtube from "../../icons/icon-youtube.svg"
 
-export default function Icon({ name, className }) {
+function Icon ({ name, className }) {
   const components = {
     "logo gloomicious": Gloomicious,
     "logo gloomicious card": GloomiciousCard,
@@ -45,3 +46,10 @@ export default function Icon({ name, className }) {
     </div>
   )
 }
+
+Icon.propTypes = {
+  name: PropTypes.string,
+  className: PropTypes.string,
+}
+
+export default Icon

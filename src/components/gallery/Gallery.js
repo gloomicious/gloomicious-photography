@@ -1,8 +1,9 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import "./Gallery.scss"
 import GalleryItem from "./GalleryItem"
 
-export default function Gallery({ items, type, filters, imageLabels }) {
+function Gallery({ items, type, filters, imageLabels }) {
   const [currentFilter, setCurrentFilter] = useState("all"),
     [animate, setAnimate] = useState(false)
   let filterAllLabel = ["all"],
@@ -104,3 +105,12 @@ export default function Gallery({ items, type, filters, imageLabels }) {
     </div>
   )
 }
+
+Gallery.propTypes = {
+  items: PropTypes.array,
+  type: PropTypes.string,
+  filters: PropTypes.array,
+  imageLabels: PropTypes.string
+}
+
+export default Gallery

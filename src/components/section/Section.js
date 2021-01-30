@@ -1,42 +1,112 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./Section.scss"
 import MarkdownContent from "./../markdown-content/MarkdownContent"
-import BackgroundImage from "./../background-image/BackgroundImage"
+import BackgroundImage from "../image-box/ImageBox"
 import Gallery from "./../gallery/Gallery"
 import Button from "./../button/Button"
 import PageList from "../page-list/PageList"
 
-export default function Section({
+function Section({
   title,
   subtitle,
   type,
   size,
   alignment,
-  pageList,
+  pageListType,
   buttonLabel,
   buttonLink,
   text,
   image,
   gallery,
 }) {
-  function chooseContent(type) {
-    switch (type) {
-      case "title":
+  function chooseContent() {
+    switch (true) {
+      case size === "page-head":
         return Title()
-      case "text":
-        return Text()
-      case "title-text":
-        return TitleText()
-      case "title-subtitle-text":
-        return TitleSubtitleText()
-      case "title-text-image":
-        return TitleTextImage()
-      case "image":
+      case type === "title":
+      case size === "full-page":
+        return (
+          <>
+            {Title()}
+            {RenderButton()}
+          </>
+        )
+      case type === "text":
+        return (
+          <>
+            {Text()}
+            {RenderButton()}
+          </>
+        )
+      case type === "title-text":
+        return (
+          <>
+            {Title()}
+            {Text()}
+            {RenderButton()}
+          </>
+        )
+      case type === "title-subtitle-text":
+        return (
+          <>
+            {Title()}
+            {Subtitle()}
+            {Text()}
+            {RenderButton()}
+          </>
+        )
+      case type === "subtitle-title-text":
+        return (
+          <>
+            {Subtitle()}
+            {Title()}
+            {Text()}
+            {RenderButton()}
+          </>
+        )
+      case type === "title-text-image":
+        return (
+          <div className="section__row">
+            <div className="section__col section__col--50 section--left">
+              {Title()}
+              {Text()}
+              {RenderButton()}
+            </div>
+            <div className="section__col section__col--50 section--right">
+              {Image()}
+            </div>
+          </div>
+        )
+      case type === "title-image-text":
+        return (
+          <div className="section__row">
+            <div className="section__col section__col--50 section--left">
+              {Image()}
+            </div>
+            <div className="section__col section__col--50 section--right">
+              {Title()}
+              {Text()}
+              {RenderButton()}
+            </div>
+          </div>
+        )
+      case type === "image":
         return Image()
-      case "gallery":
-        return ImageGallery()
-      case "page-list":
-        return PageListGallery()
+      case type === "gallery":
+        return (
+          <>
+            {gallery && (
+              <Gallery
+                items={gallery.photos}
+                type={gallery.type}
+                imageLabels={gallery.imageLabels}
+              />
+            )}
+          </>
+        )
+      case type === "page-list":
+        return <>{pageListType && <PageList pageType={pageListType} />}</>
       default:
         return Text()
     }
@@ -45,22 +115,26 @@ export default function Section({
   function Title() {
     return (
       <>
-        {title && <h1 className="section__title">{title}</h1>}
-        {buttonLabel && buttonLink && (
-          <Button
-            label={buttonLabel}
-            link={buttonLink}
-            className="section__button"
-          />
+        {title && (
+          <>
+            <h1 className="section__title">{title}</h1>
+          </>
         )}
       </>
     )
+  }
+
+  function Subtitle() {
+    return <>{subtitle && <h5 className="section__subtitle">{subtitle}</h5>}</>
   }
 
   function Text() {
+    return <>{text && <MarkdownContent content={text} />}</>
+  }
+
+  function RenderButton() {
     return (
       <>
-        {text && <MarkdownContent content={text} />}
         {buttonLabel && buttonLink && (
           <Button
             label={buttonLabel}
@@ -69,60 +143,6 @@ export default function Section({
           />
         )}
       </>
-    )
-  }
-
-  function TitleText() {
-    return (
-      <>
-        {title && <h1 className="section__title">{title}</h1>}
-        {text && <MarkdownContent content={text} />}
-        {buttonLabel && buttonLink && (
-          <Button
-            label={buttonLabel}
-            link={buttonLink}
-            className="section__button"
-          />
-        )}
-      </>
-    )
-  }
-
-  function TitleSubtitleText() {
-    return (
-      <>
-        {subtitle && <h5 className="section__subtitle">{subtitle}</h5>}
-        {title && <h1 className="section__title">{title}</h1>}
-        {text && <MarkdownContent content={text} />}
-        {buttonLabel && buttonLink && (
-          <Button
-            label={buttonLabel}
-            link={buttonLink}
-            className="section__button"
-          />
-        )}
-      </>
-    )
-  }
-
-  function TitleTextImage() {
-    return (
-      <div className="section__row">
-        <div className="section__col section__col--50">
-          {title && <h1 className="section__title">{title}</h1>}
-          {text && <MarkdownContent content={text} />}
-          {buttonLabel && buttonLink && (
-            <Button
-              label={buttonLabel}
-              link={buttonLink}
-              className="section__button"
-            />
-          )}
-        </div>
-        <div className="section__col section__col--50 section--right">
-          {image && <BackgroundImage filename={image.file} size={image.size} />}
-        </div>
-      </div>
     )
   }
 
@@ -134,25 +154,11 @@ export default function Section({
     )
   }
 
-  function ImageGallery() {
-    return (
-      <Gallery
-        items={gallery.photos}
-        type={gallery.type}
-        imageLabels={gallery.imageLabels}
-      />
-    )
-  }
-
-  function PageListGallery() {
-    return <PageList pageType={pageList} />
-  }
-
   return (
     <>
       {title && (
         <span
-          id={title?.toString().toLowerCase().replaceAll(" ", "-")}
+          id={title.toLowerCase().replaceAll(" ", "-")}
           className="section__anchor"
         ></span>
       )}
@@ -161,8 +167,24 @@ export default function Section({
           size ? ` section--${size}` : ""
         }`}
       >
-        {size === "page-head" ? Title() : chooseContent(type)}
+        {type && chooseContent()}
       </section>
     </>
   )
 }
+
+Section.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  type: PropTypes.string,
+  size: PropTypes.string,
+  alignment: PropTypes.string,
+  pageList: PropTypes.string,
+  buttonLabel: PropTypes.string,
+  buttonLink: PropTypes.string,
+  text: PropTypes.string,
+  image: PropTypes.object,
+  gallery: PropTypes.object,
+}
+
+export default Section

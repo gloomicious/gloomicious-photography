@@ -1,8 +1,9 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Icon from "./../icon/Icon"
 import "./ThemeToggle.scss"
 
-const ThemeToggle = ({ theme, className }) => {
+function ThemeToggle({ theme, className }) {
   return (
     <div
       className={`theme-toggle ${className ? className : ""} ${theme.name} `}
@@ -14,6 +15,11 @@ const ThemeToggle = ({ theme, className }) => {
       {theme.name === "light" ? <Icon name="moon" /> : <Icon name="sun" />}
     </div>
   )
+}
+
+ThemeToggle.propTypes = {
+  theme: PropTypes.object,
+  className: PropTypes.string,
 }
 
 export default ThemeToggle

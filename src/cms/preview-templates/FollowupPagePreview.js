@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { FollowupPageTemplate } from "../../templates/followup-page"
 
-const FollowupPagePreview = ({ entry }) => {
+function FollowupPagePreview({ entry }) {
   const data = entry.getIn(["data"]).toJS()
 
   if (data) {

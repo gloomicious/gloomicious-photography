@@ -1,9 +1,10 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import "./BackgroundImage.scss"
+import "./ImageBox.scss"
 
-export default function Image({ filename, size, alt, className, children }) {
+function ImageBox({ filename, size, alt, className, children }) {
   return (
     <StaticQuery
       query={graphql`
@@ -32,21 +33,21 @@ export default function Image({ filename, size, alt, className, children }) {
         }
         return (
           <div
-            className={`background-image ${className ? className : ""} ${
-              size ? `background-image--${size}` : ""
+            className={`image-box ${className ? className : ""} ${
+              size ? `image-box--${size}` : ""
             }`}
           >
             {size === "full-page" || size === "page-head" ? (
-              <div className="background-image__overlay"></div>
+              <div className="image-box__overlay"></div>
             ) : null}
             <BackgroundImage
-              className="background-image__photo"
+              className="image-box__photo"
               alt={alt}
               fluid={image.node.childImageSharp.fluid}
               preserveStackingContext={true}
               backgroundColor={`#161a1b`}
             >
-              <div className="background-image__content">{children}</div>
+              <div className="image-box__content">{children}</div>
             </BackgroundImage>
           </div>
         )
@@ -54,3 +55,13 @@ export default function Image({ filename, size, alt, className, children }) {
     />
   )
 }
+
+ImageBox.propTypes = {
+  filename: PropTypes.string,
+  size: PropTypes.string,
+  alt: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.array,
+}
+
+export default ImageBox

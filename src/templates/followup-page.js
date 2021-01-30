@@ -3,55 +3,59 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout/Layout"
 import SEO from "../components/seo/Seo"
-import BackgroundImage from "../components/background-image/BackgroundImage"
+import ImageBox from "../components/image-box/ImageBox"
 import Section from "../components/section/Section"
 
-export const FollowupPageTemplate = ({ pageImage, showPageImage, section }) => (
+export const FollowupPageTemplate = ({
+  pageImage,
+  showPageImage,
+  sections,
+}) => (
   <Layout>
     {pageImage && showPageImage ? (
       <>
-        <BackgroundImage filename={pageImage} size={showPageImage} />
+        <ImageBox filename={pageImage} size={showPageImage} />
         <Section
-          title={section[0].title}
-          subtitle={section[0].subtitle}
-          alignment={section[0].alignment}
-          type={section[0].type}
+          title={sections[0].title}
+          subtitle={sections[0].subtitle}
+          alignment={sections[0].alignment}
+          type={sections[0].type}
           size={showPageImage}
-          buttonLabel={section[0].buttonLabel}
-          buttonLink={section[0].buttonLink}
-          text={section[0].text}
+          buttonLabel={sections[0].buttonLabel}
+          buttonLink={sections[0].buttonLink}
+          text={sections[0].text}
         />
-        {section.slice(1).map((section, index) => (
+        {sections.slice(1).map((item, index) => (
           <Section
-            title={section.title}
-            subtitle={section.subtitle}
-            alignment={section.alignment}
-            type={section.type}
-            size={section.size}
-            buttonLabel={section.buttonLabel}
-            buttonLink={section.buttonLink}
-            text={section.text}
-            image={section.image}
-            gallery={section.gallery}
-            pageList={section.pageList}
+            title={item.title}
+            subtitle={item.subtitle}
+            alignment={item.alignment}
+            type={item.type}
+            size={item.size}
+            buttonLabel={item.buttonLabel}
+            buttonLink={item.buttonLink}
+            text={item.text}
+            image={item.image}
+            gallery={item.gallery}
+            pageListType={item.pageList}
             key={index}
           />
         ))}
       </>
     ) : (
-      section.map((section, index) => (
+      sections.map((item, index) => (
         <Section
-          title={section.title}
-          subtitle={section.subtitle}
-          alignment={section.alignment}
-          type={section.type}
-          size={section.size}
-          buttonLabel={section.buttonLabel}
-          buttonLink={section.buttonLink}
-          text={section.text}
-          image={section.image}
-          gallery={section.gallery}
-          pageList={section.pageList}
+          title={item.title}
+          subtitle={item.subtitle}
+          alignment={item.alignment}
+          type={item.type}
+          size={item.size}
+          buttonLabel={item.buttonLabel}
+          buttonLink={item.buttonLink}
+          text={item.text}
+          image={item.image}
+          gallery={item.gallery}
+          pageListType={item.pageList}
           key={index}
         />
       ))
@@ -60,10 +64,12 @@ export const FollowupPageTemplate = ({ pageImage, showPageImage, section }) => (
 )
 
 FollowupPageTemplate.propTypes = {
-  section: PropTypes.array,
+  pageImage: PropTypes.string,
+  showPageImage: PropTypes.string,
+  sections: PropTypes.array,
 }
 
-const FollowupPage = ({ data }) => {
+function FollowupPage({ data }) {
   const { frontmatter } = data.markdownRemark
   return (
     <>
@@ -74,7 +80,7 @@ const FollowupPage = ({ data }) => {
       <FollowupPageTemplate
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
-        section={frontmatter.section}
+        sections={frontmatter.section}
       />
     </>
   )

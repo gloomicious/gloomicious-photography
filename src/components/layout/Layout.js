@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 import { ThemeContext } from "../../contexts/ThemeContext"
@@ -6,14 +7,14 @@ import "./Layout.scss"
 import Navbar from "../navbar/Navbar"
 import Footer from "../footer/Footer"
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   const [canRender, setCanRender] = React.useState(false)
 
   React.useEffect(() => {
     setCanRender(true)
   }, [])
 
-  if(!canRender) {
+  if (!canRender) {
     return null
   }
 
@@ -36,6 +37,13 @@ const Layout = ({ children }) => {
       )}
     </ThemeContext.Consumer>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ])
 }
 
 export default Layout
