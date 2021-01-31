@@ -37,9 +37,7 @@ function ImageBox({ filename, size, alt, className, children }) {
               size ? `image-box--${size}` : ""
             }`}
           >
-            {size === "full-page" || size === "page-head" ? (
-              <div className="image-box__overlay"></div>
-            ) : null}
+            <div className="image-box__overlay"></div>
             <BackgroundImage
               className="image-box__photo"
               alt={alt}
@@ -61,7 +59,7 @@ ImageBox.propTypes = {
   size: PropTypes.string,
   alt: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 export default ImageBox

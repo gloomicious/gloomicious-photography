@@ -6,7 +6,7 @@ function FollowupPagePreview({ entry }) {
   const data = entry.getIn(["data"]).toJS()
 
   if (data) {
-    return <FollowupPageTemplate section={data.section} />
+    return <FollowupPageTemplate sections={data.section} />
   } else {
     return <div>Loading...</div>
   }

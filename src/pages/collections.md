@@ -3,10 +3,8 @@ templateKey: followup-page
 seoTitle: Collections
 seoDescription: description
 path: /collections
-pageTitle: Collections
 pageImage: a7_01040.jpg
-showPageImage: page-head
-date: 2020-12-25T19:41:37.318Z
+showPageImage: null
 section:
   - type: title
     title: Collections
@@ -26,4 +24,6 @@ section:
     buttonLabel: ""
   - type: page-list
     pageList: photo-collections
+pageTitle: Collections
+date: 2020-12-25T19:41:37.318Z
 ---

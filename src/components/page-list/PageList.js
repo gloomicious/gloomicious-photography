@@ -70,9 +70,8 @@ function PageList({ pageType }) {
             return (
               <Gallery
                 items={collectionItems}
-                type="4-columns"
+                type="label"
                 filters={collectionFilters}
-                imageLabels="center"
               />
             )
 
@@ -98,9 +97,8 @@ function PageList({ pageType }) {
             return (
               <Gallery
                 items={blogItems}
-                type="3-columns"
+                type="caption"
                 filters={blogFilters}
-                imageLabels="below-left"
               />
             )
           default:

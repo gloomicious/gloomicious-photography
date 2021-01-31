@@ -96,13 +96,7 @@ function Section({
       case type === "gallery":
         return (
           <>
-            {gallery && (
-              <Gallery
-                items={gallery.photos}
-                type={gallery.type}
-                imageLabels={gallery.imageLabels}
-              />
-            )}
+            {gallery && <Gallery items={gallery.photos} type={gallery.type} />}
           </>
         )
       case type === "page-list":
@@ -163,8 +157,8 @@ function Section({
         ></span>
       )}
       <section
-        className={`section${alignment ? ` section--${alignment}` : ""}${
-          size ? ` section--${size}` : ""
+        className={`section${size ? ` section--${size}` : ""}${
+          alignment ? ` section--${alignment}` : ""
         }`}
       >
         {type && chooseContent()}

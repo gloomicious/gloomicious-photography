@@ -1,108 +1,154 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
+import BackgroundImage from "../image-box/ImageBox"
+import Image from "../image/Image"
+import Lightbox from "../lightbox/Lightbox"
 import "./Gallery.scss"
-import GalleryItem from "./GalleryItem"
 
-function Gallery({ items, type, filters, imageLabels }) {
+function Gallery({ items, type, filters }) {
   const [currentFilter, setCurrentFilter] = useState("all"),
-    [animate, setAnimate] = useState(false)
+    [animate, setAnimate] = useState(false),
+    [lightboxOpened, setLightboxOpened] = useState(false)
   let filterAllLabel = ["all"],
     allFilters
   if (filters) allFilters = filterAllLabel.concat(filters)
 
-  function changeItems(filter) {
+  function FormatDate(date) {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ]
+    const dateComplete = new Date(date)
+    const month = monthNames[dateComplete.getMonth()]
+    const year = dateComplete.getFullYear()
+    const day = dateComplete.getDate()
+    const formattedDate = [day, month, year].join(" ")
+    return formattedDate
+  }
+
+  function ChangeDisplayedItems(filter) {
     setAnimate(true)
     setTimeout(() => {
       setCurrentFilter(filter)
-    }, 400);
+    }, 400)
     setTimeout(() => {
       setAnimate(false)
-    }, 800);
+    }, 800)
   }
 
-  function Filters() {
+  function RenderFilters() {
     return (
-      <ul className="gallery__filters">
-        {allFilters.map((filter, index) => (
-          <li
-            key={index}
-            onClick={() => changeItems(filter)}
-            className={`gallery__filters__item${
-              currentFilter === filter ? " gallery__filters__item--active" : ""
-            }`}
-            role="presentation"
-          >
-            {filter}
-          </li>
-        ))}
-      </ul>
+      <div className="gallery__filters">
+        {allFilters.map(
+          (filter, index) =>
+            filter !== null && (
+              <span
+                key={index}
+                onClick={() => ChangeDisplayedItems(filter)}
+                className={`gallery__filters__filter${
+                  currentFilter === filter
+                    ? " gallery__filters__filter--active"
+                    : ""
+                }`}
+                role="presentation"
+              >
+                {filter}
+              </span>
+            )
+        )}
+      </div>
     )
   }
 
-  function FilteredGallery() {
+  function RenderItemWithLink(item) {
     return (
-      <div className={`gallery gallery--${type}`}>
-        {items.map((item, index) => (
+      <Link to={`/${item.page}`} className="gallery__item">
+        <BackgroundImage filename={item.image} className="gallery__item__image">
+          {type === "label" && (
+            <>
+              {item.title && (
+                <span className="gallery__item__label">{item.title}</span>
+              )}
+            </>
+          )}
+        </BackgroundImage>
+        {item.date && (
+          <div className="gallery__item__caption">
+            {item.date && (
+              <p className="gallery__item__caption__date">
+                {FormatDate(item.date)}
+              </p>
+            )}
+            {item.title && (
+              <h3 className="gallery__item__caption__title">{item.title}</h3>
+            )}
+          </div>
+        )}
+      </Link>
+    )
+  }
+
+  function RenderItemWithLightbox(item) {
+    return (
+      <>
+        {lightboxOpened && (
+          <Lightbox
+            open={lightboxOpened}
+            setOpen={setLightboxOpened}
+            item={item}
+          />
+        )}
+        <div
+          className="gallery__item"
+          onClick={() => setLightboxOpened(true)}
+          role="presentation"
+        >
+          <Image filename={item.image} className="gallery__item__image" />
+        </div>
+      </>
+    )
+  }
+
+  function RenderGallery() {
+    return (
+      <>
+        {items?.map((item, index) => (
           <React.Fragment key={index}>
-            {item.category === currentFilter || currentFilter === "all" ? (
-              <GalleryItem
-                item={item}
-                size={type}
-                imageLabels={imageLabels}
-                key={item.title + index}
-              />
-            ) : null}
+            {!filters
+              ? item.page
+                ? RenderItemWithLink(item)
+                : RenderItemWithLightbox(item)
+              : item.category === currentFilter || currentFilter === "all"
+              ? RenderItemWithLink(item)
+              : null}
           </React.Fragment>
         ))}
-      </div>
-    )
-  }
-
-  function FullWidthGallery() {
-    return (
-      <div className={`gallery gallery--${type}`}>
-        {items.map((item, index) => (
-          <GalleryItem
-            item={item}
-            size={type}
-            imageLabels={imageLabels}
-            key={item.title + index}
-          />
-        ))}
-      </div>
-    )
-  }
-
-  function StaticGallery() {
-    return (
-      <div className={`gallery gallery--${type}`}>
-        {items.map((item, index) => (
-          <GalleryItem
-            item={item}
-            size={type}
-            imageLabels={imageLabels}
-            key={item.title + index}
-          />
-        ))}
-      </div>
+      </>
     )
   }
 
   return (
-    <div className="gallery__wrapper">
-      {filters && filters.length > 1 && Filters()}
+    <>
       <div
-        className={`gallery__content${
-          animate ? " gallery__content--animated" : ""
+        className={`gallery gallery--${type}${
+          animate ? " gallery--animated" : ""
         }`}
       >
-        {type === "full-width"
-          ? FullWidthGallery()
-          : filters
-          ? FilteredGallery()
-          : StaticGallery()}
+        {filters && filters.length > 1 && RenderFilters()}
+        {RenderGallery()}
       </div>
-    </div>
+    </>
   )
 }
 
@@ -110,7 +156,6 @@ Gallery.propTypes = {
   items: PropTypes.array,
   type: PropTypes.string,
   filters: PropTypes.array,
-  imageLabels: PropTypes.string
 }
 
 export default Gallery

@@ -29,8 +29,7 @@ section:
       Follow me on my journey to witness the beauty of planet earth, discover and adventure - through the lens of my camera. Be inspired, expand your horizon and have fun exploring!
   - type: gallery
     gallery:
-      type: full-width
-      imageLabels: none
+      type: auto
       photos:
         - title: Title
           image: a7_01040.jpg

@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: blog-page
 seoTitle: Gear I use
 seoDescription: d
 path: /gear-i-use

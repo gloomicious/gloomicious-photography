@@ -123,7 +123,6 @@ export const pageQuery = graphql`
           }
           gallery {
             type
-            imageLabels
             photos {
               title
               page

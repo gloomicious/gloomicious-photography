@@ -31,8 +31,8 @@ project:
         required: true,
         fields:
           [
-            { label: Type, name: type, widget: select, options: [ "text", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ] },
-            { label: Section width, name: size, widget: select, required: false, options: ["narrow", "wide"], default: "narrow" },
+            { label: Type, name: type, widget: select, options: [ "text", "title", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ], default: "text" },
+            { label: Section width/position, name: size, widget: select, required: false, options: ["narrow", "wide", "full-page", "page-head"], default: "narrow" },
             { label: Alignment, name: alignment, widget: select, required: false, options: ["left", "center"], default: "left" },
             { label: Title, name: title, widget: string, required: false },
             { label: Subtitle, name: subtitle, widget: string, required: false },
@@ -55,7 +55,7 @@ project:
               required: false,
               fields:
                 [
-                  { label: Type, name: type, widget: hidden, default: "full-width" },
+                  { label: Type, name: type, widget: hidden, default: "auto" },
                   {
                     label: Photos,
                     name: photos,
@@ -70,13 +70,12 @@ project:
                 ]
             },
             {
-              label: Page List,
+              label: Show pages in gallery,
               name: pageList,
               widget: select,
               required: false,
               options:
                 [
-                  { label: None, value: none },
                   { label: Photo collections, value: photo-collections },
                   { label: Blog pages, value: blog-pages }
                 ]
