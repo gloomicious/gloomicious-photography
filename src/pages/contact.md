@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Contact
 seoDescription: Contact gloomicious.com
 path: /contact

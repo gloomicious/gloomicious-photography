@@ -6,13 +6,14 @@ import SEO from "../components/seo/Seo"
 import ImageBox from "../components/image-box/ImageBox"
 import Section from "../components/section/Section"
 
-export const FollowupPageTemplate = ({
+export const GeneralPageTemplate = ({
+  pageTitle,
   pageImage,
   showPageImage,
   sections,
 }) => (
   <Layout>
-    {pageImage && showPageImage ? (
+    {pageImage && showPageImage === "full-page" ? (
       <>
         <ImageBox filename={pageImage} size={showPageImage} />
         <Section
@@ -43,33 +44,50 @@ export const FollowupPageTemplate = ({
         ))}
       </>
     ) : (
-      sections.map((item, index) => (
-        <Section
-          title={item.title}
-          subtitle={item.subtitle}
-          alignment={item.alignment}
-          type={item.type}
-          size={item.size}
-          buttonLabel={item.buttonLabel}
-          buttonLink={item.buttonLink}
-          text={item.text}
-          image={item.image}
-          gallery={item.gallery}
-          pageListType={item.pageList}
-          key={index}
-        />
-      ))
+      <>
+        {pageImage && showPageImage ? (
+          <>
+            {showPageImage === "page-head" && (
+              <>
+                <ImageBox filename={pageImage} size={showPageImage}>
+                  <h1>{pageTitle}</h1>
+                </ImageBox>
+                <Section type="empty" />
+              </>
+            )}
+            {showPageImage === "page-start" && (
+              <ImageBox filename={pageImage} size={showPageImage} />
+            )}
+          </>
+        ) : null}
+        {sections.map((item, index) => (
+          <Section
+            title={item.title}
+            subtitle={item.subtitle}
+            alignment={item.alignment}
+            type={item.type}
+            size={item.size}
+            buttonLabel={item.buttonLabel}
+            buttonLink={item.buttonLink}
+            text={item.text}
+            image={item.image}
+            gallery={item.gallery}
+            pageListType={item.pageList}
+            key={index}
+          />
+        ))}
+      </>
     )}
   </Layout>
 )
 
-FollowupPageTemplate.propTypes = {
+GeneralPageTemplate.propTypes = {
   pageImage: PropTypes.string,
   showPageImage: PropTypes.string,
   sections: PropTypes.array,
 }
 
-function FollowupPage({ data }) {
+function GeneralPage({ data }) {
   const { frontmatter } = data.markdownRemark
   return (
     <>
@@ -77,7 +95,8 @@ function FollowupPage({ data }) {
         title={frontmatter.seoTitle}
         description={frontmatter.seoDescription}
       />
-      <FollowupPageTemplate
+      <GeneralPageTemplate
+        pageTitle={frontmatter.seoTitle}
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
         sections={frontmatter.section}
@@ -86,7 +105,7 @@ function FollowupPage({ data }) {
   )
 }
 
-FollowupPage.propTypes = {
+GeneralPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -94,12 +113,12 @@ FollowupPage.propTypes = {
   }),
 }
 
-export default FollowupPage
+export default GeneralPage
 
 export const pageQuery = graphql`
-  query FollowupPageTemplate($path: String!) {
+  query GeneralPageTemplate($path: String!) {
     markdownRemark(
-      frontmatter: { path: { eq: $path }, templateKey: { eq: "followup-page" } }
+      frontmatter: { path: { eq: $path }, templateKey: { eq: "general-page" } }
     ) {
       frontmatter {
         path

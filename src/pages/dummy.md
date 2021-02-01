@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Dummy
 seoDescription: dummy
 path: /dummy
@@ -14,4 +14,7 @@ section:
         - title: Title
           image: placeholder.jpg
           page: /dummy
+  - type: title-subtitle
+    title: Dummy title
+    subtitle: Dummy subtitle
 ---

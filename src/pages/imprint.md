@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Imprint
 seoDescription: Imprint for gloomicious.com
 path: /imprint

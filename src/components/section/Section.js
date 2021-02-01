@@ -1,10 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./Section.scss"
-import MarkdownContent from "./../markdown-content/MarkdownContent"
-import BackgroundImage from "../image-box/ImageBox"
-import Gallery from "./../gallery/Gallery"
-import Button from "./../button/Button"
+import MarkdownContent from "../markdown-content/MarkdownContent"
+import Image from "../image/Image"
+import ImageBox from "../image-box/ImageBox"
+import Gallery from "../gallery/Gallery"
+import Button from "../button/Button"
 import PageList from "../page-list/PageList"
 
 function Section({
@@ -23,45 +24,45 @@ function Section({
   function chooseContent() {
     switch (true) {
       case size === "page-head":
-        return Title()
+        return RenderTitle()
       case type === "title":
       case size === "full-page":
         return (
           <>
-            {Title()}
+            {RenderTitle()}
             {RenderButton()}
           </>
         )
       case type === "text":
         return (
           <>
-            {Text()}
+            {RenderText()}
             {RenderButton()}
           </>
         )
       case type === "title-text":
         return (
           <>
-            {Title()}
-            {Text()}
+            {RenderTitle()}
+            {RenderText()}
             {RenderButton()}
           </>
         )
       case type === "title-subtitle-text":
         return (
           <>
-            {Title()}
-            {Subtitle()}
-            {Text()}
+            {RenderTitle()}
+            {RenderSubtitle()}
+            {RenderText()}
             {RenderButton()}
           </>
         )
       case type === "subtitle-title-text":
         return (
           <>
-            {Subtitle()}
-            {Title()}
-            {Text()}
+            {RenderSubtitle()}
+            {RenderTitle()}
+            {RenderText()}
             {RenderButton()}
           </>
         )
@@ -69,12 +70,12 @@ function Section({
         return (
           <div className="section__row">
             <div className="section__col section__col--50 section--left">
-              {Title()}
-              {Text()}
+              {RenderTitle()}
+              {RenderText()}
               {RenderButton()}
             </div>
             <div className="section__col section__col--50 section--right">
-              {Image()}
+              {RenderImage()}
             </div>
           </div>
         )
@@ -82,17 +83,17 @@ function Section({
         return (
           <div className="section__row">
             <div className="section__col section__col--50 section--left">
-              {Image()}
+              {RenderImage()}
             </div>
             <div className="section__col section__col--50 section--right">
-              {Title()}
-              {Text()}
+              {RenderTitle()}
+              {RenderText()}
               {RenderButton()}
             </div>
           </div>
         )
       case type === "image":
-        return Image()
+        return RenderImage()
       case type === "gallery":
         return (
           <>
@@ -102,11 +103,11 @@ function Section({
       case type === "page-list":
         return <>{pageListType && <PageList pageType={pageListType} />}</>
       default:
-        return Text()
+        return
     }
   }
 
-  function Title() {
+  function RenderTitle() {
     return (
       <>
         {title && (
@@ -118,11 +119,11 @@ function Section({
     )
   }
 
-  function Subtitle() {
+  function RenderSubtitle() {
     return <>{subtitle && <h5 className="section__subtitle">{subtitle}</h5>}</>
   }
 
-  function Text() {
+  function RenderText() {
     return <>{text && <MarkdownContent content={text} />}</>
   }
 
@@ -140,10 +141,14 @@ function Section({
     )
   }
 
-  function Image() {
+  function RenderImage() {
     return (
       <>
-        {image && <BackgroundImage filename={image.file} size={image.size} />}
+        {image && image.size === "auto" ? (
+          <Image filename={image.file} size={image.size} />
+        ) : (
+          <ImageBox filename={image.file} size={image.size} />
+        )}
       </>
     )
   }
@@ -157,9 +162,13 @@ function Section({
         ></span>
       )}
       <section
-        className={`section${size ? ` section--${size}` : ""}${
-          alignment ? ` section--${alignment}` : ""
-        }`}
+        className={`section${alignment ? ` section--${alignment}` : ""}${
+          size
+            ? type === "title-text-image"
+              ? ` section--wide`
+              : ` section--${size}`
+            : ""
+        }${type === "empty" ? " section--empty" : ""}`}
       >
         {type && chooseContent()}
       </section>

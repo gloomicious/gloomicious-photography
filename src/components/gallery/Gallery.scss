@@ -22,8 +22,9 @@
     @media screen and (min-width: $screen-xl) {
       position: relative;
       left: 50%;
-      width: 80vw;
-      margin-left: -40vw;
+      transform: translateX(-50%);
+      width: calc(100vw - #{$spacing-sm * 2});
+      max-width: $site-width;
     }
   }
 
@@ -149,8 +150,6 @@
       #{$p}__item {
         &__image {
           transform: scale(1.05);
-
-          
         }
 
         &__caption {

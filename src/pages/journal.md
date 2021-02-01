@@ -1,9 +1,10 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Journal
-seoDescription: Stories about photography, traveling and life
+seoDescription: Stories about experiences I made along my journey to discover this planet.
 path: /journal
 pageTitle: Journal
+showPageImage: "false"
 date: 2020-12-24T14:27:53.366Z
 section:
   - type: title-text
@@ -17,6 +18,8 @@ section:
 
 
       Enjoy the read and feel free to [share your thoughts](/contact) with me if you like to!
+    size: narrow
   - type: page-list
     pageList: blog-pages
+    size: narrow
 ---

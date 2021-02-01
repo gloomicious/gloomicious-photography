@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Outdoor & Aerial Photography
 seoDescription: I'm Jenny, an aspiring outdoor and aerial photographer with a
   curious mind and I want to show you our beautiful planet.

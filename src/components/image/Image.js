@@ -33,15 +33,29 @@ function Image({ filename, size, alt, style, className }) {
         }
 
         return (
-          <Img
-            alt={alt}
-            fluid={image.node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            className={`image ${size ? `image--${size}` : ""}${
-              className ? ` ${className}` : ""
-            }`}
-            style={style}
-          />
+          <>
+            {size === "full-width" || size === "square" ? (
+              <div className={`image__wrapper image__wrapper--${size}`}>
+                <Img
+                  alt={alt}
+                  fluid={image.node.childImageSharp.fluid}
+                  imgStyle={{ objectFit: "contain" }}
+                  className={`image${className ? ` ${className}` : ""}`}
+                  style={style}
+                />
+              </div>
+            ) : (
+              <Img
+                alt={alt}
+                fluid={image.node.childImageSharp.fluid}
+                imgStyle={{ objectFit: "contain" }}
+                className={`image ${size ? `image--${size}` : ""}${
+                  className ? ` ${className}` : ""
+                }`}
+                style={style}
+              />
+            )}
+          </>
         )
       }}
     />

@@ -6,63 +6,69 @@ import SEO from "../components/seo/Seo"
 import ImageBox from "../components/image-box/ImageBox"
 import Section from "../components/section/Section"
 
-export const BlogPageTemplate = ({ pageImage, showPageImage, sections }) => (
+function FormatDate(date) {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+  const dateComplete = new Date(date)
+  const month = monthNames[dateComplete.getMonth()]
+  const year = dateComplete.getFullYear()
+  const day = dateComplete.getDate()
+  const formattedDate = [day, month, year].join(" ")
+  return formattedDate
+}
+
+export const BlogPageTemplate = ({
+  pageTitle,
+  pageImage,
+  showPageImage,
+  creationDate,
+  text,
+}) => (
   <Layout>
     {pageImage && showPageImage ? (
       <>
-        <ImageBox filename={pageImage} size={showPageImage} />
-        <Section
-          title={sections[0].title}
-          subtitle={sections[0].subtitle}
-          alignment={sections[0].alignment}
-          type={sections[0].type}
-          size={showPageImage}
-          buttonLabel={sections[0].buttonLabel}
-          buttonLink={sections[0].buttonLink}
-          text={sections[0].text}
-        />
-        {sections.slice(1).map((item, index) => (
-          <Section
-            title={item.title}
-            subtitle={item.subtitle}
-            alignment={item.alignment}
-            type={item.type}
-            size={item.size}
-            buttonLabel={item.buttonLabel}
-            buttonLink={item.buttonLink}
-            text={item.text}
-            image={item.image}
-            gallery={item.gallery}
-            pageListType={item.pageList}
-            key={index}
-          />
-        ))}
+        {showPageImage === "page-head" && (
+          <>
+            <ImageBox filename={pageImage} size={showPageImage}>
+              <h1>{pageTitle}</h1>
+            </ImageBox>
+            <Section type="empty" />
+          </>
+        )}
+        {showPageImage === "page-start" && (
+          <ImageBox filename={pageImage} size={showPageImage} />
+        )}
       </>
-    ) : (
-      sections.map((item, index) => (
-        <Section
-          title={item.title}
-          subtitle={item.subtitle}
-          alignment={item.alignment}
-          type={item.type}
-          size={item.size}
-          buttonLabel={item.buttonLabel}
-          buttonLink={item.buttonLink}
-          text={item.text}
-          image={item.image}
-          gallery={item.gallery}
-          pageListType={item.pageList}
-          key={index}
-        />
-      ))
+    ) : null}
+    {text && (
+      <Section
+        type="subtitle-title-text"
+        title={pageTitle}
+        subtitle={FormatDate(creationDate)}
+        text={text}
+      />
     )}
   </Layout>
 )
 
 BlogPageTemplate.propTypes = {
+  pageTitle: PropTypes.string,
   pageImage: PropTypes.string,
   showPageImage: PropTypes.string,
-  sections: PropTypes.array,
+  creationDate: PropTypes.string,
+  text: PropTypes.string,
 }
 
 function BlogPage({ data }) {
@@ -74,9 +80,11 @@ function BlogPage({ data }) {
         description={frontmatter.seoDescription}
       />
       <BlogPageTemplate
+        pageTitle={frontmatter.seoTitle}
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
-        sections={frontmatter.section}
+        creationDate={frontmatter.date}
+        text={frontmatter.text}
       />
     </>
   )
@@ -103,29 +111,9 @@ export const pageQuery = graphql`
         seoDescription
         pageImage
         showPageImage
-        section {
-          title
-          subtitle
-          alignment
-          type
-          size
-          pageList
-          buttonLabel
-          buttonLink
-          text
-          image {
-            file
-            size
-          }
-          gallery {
-            type
-            photos {
-              title
-              page
-              image
-            }
-          }
-        }
+        date
+        category
+        text
       }
     }
   }

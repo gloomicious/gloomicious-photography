@@ -1,14 +1,12 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: About
 seoDescription: About Jenny, the person behind the lens at gloomicious
 path: /about
 date: 2020-12-26T17:18:30.403Z
+pageImage: a7_01581.jpg
+showPageImage: page-start
 section:
-  - type: image
-    image:
-      file: a7_01581.jpg
-      size: full-width
   - type: title-text
     title: Behind the lens
     text: >-

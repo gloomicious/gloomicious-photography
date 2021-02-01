@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import BackgroundImage from "../image-box/ImageBox"
+import ImageBox from "../image-box/ImageBox"
 import Image from "../image/Image"
 import Lightbox from "../lightbox/Lightbox"
 import "./Gallery.scss"
@@ -74,15 +74,15 @@ function Gallery({ items, type, filters }) {
   function RenderItemWithLink(item) {
     return (
       <Link to={`/${item.page}`} className="gallery__item">
-        <BackgroundImage filename={item.image} className="gallery__item__image">
-          {type === "label" && (
+        <ImageBox filename={item.image} className="gallery__item__image">
+          {type === "label" ? (
             <>
               {item.title && (
                 <span className="gallery__item__label">{item.title}</span>
               )}
             </>
-          )}
-        </BackgroundImage>
+          ) : null}
+        </ImageBox>
         {item.date && (
           <div className="gallery__item__caption">
             {item.date && (

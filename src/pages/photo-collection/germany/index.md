@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Germany
 seoDescription: A collection of landscapes and moments captured in Germany, the
   country of medieval castles and deep forests.

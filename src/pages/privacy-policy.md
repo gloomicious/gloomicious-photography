@@ -1,5 +1,5 @@
 ---
-templateKey: followup-page
+templateKey: general-page
 seoTitle: Privacy policy
 seoDescription: Privacy policy for gloomicious.com
 path: /privacy-policy

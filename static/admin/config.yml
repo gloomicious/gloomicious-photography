@@ -15,37 +15,50 @@ media_folder: src/images
 public_folder: ""
 
 project:
-  - &followupContent
-    - { label: Template Key, name: templateKey, widget: hidden, default: followup-page }
-    - { label: SEO title, name: seoTitle, widget: string }
-    - { label: SEO description, name: seoDescription, widget: string }
-    - { label: URL path (with leading slash), name: path, widget: string }
-    - { label: Page image, name: pageImage, widget: image, required: false }
-    - { label: Show page image, name: showPageImage, widget: select, options: [full-page, page-header], required: false }
-    - { label: Last edited, name: date, widget: datetime, date_format: YYYY-MM-DD }
-    - { label: Category, name: category, widget: select, required: false, options: [america, asia, europe, desert, tropics, forest, urban, growth, personal, photography, sustainability, travel] }
+  - &generalPageContent
+    - { label: Template Key, name: templateKey, widget: hidden, default: general-page }
+    - { label: Page title, name: seoTitle, widget: string, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Give the page a clear name (max. 50 characters). }
+    - { label: Page description, name: seoDescription, widget: string, pattern: ['^.{50,150}$', "Must have 50-150 characters"], hint: Describe the page content in 50-150 characters. }
+    - { label: URL path, name: path, widget: string, pattern: ['^\/', "Must have a prepending forward slash ('/')"], hint: Path where the page is accessed. Needs to have a prepending '/'. }
+    - { label: Page image, name: pageImage, widget: image, required: false, hint: A big image at the start of the page that is displayed only if the 'Show page image' field is set. }
+    - { 
+        label: Show page image,
+        name: showPageImage,
+        widget: select,
+        hint: "'full-page' fills the entire page and displays content from the first section it, 'page-head' includes the page title and 'page-start' only an image.",
+        options:
+          [
+            { label: "false", value: "false" },
+            { label: full-page, value: full-page },
+            { label: page-header, value: page-header },
+            { label: page-start, value: page-start }
+          ],
+        default: "false"
+      }
+    - { label: Last edited, name: date, widget: datetime, date_format: YYYY-MM-DD, hint: A date to track when the page was last edited. Displays nowhere and has to be updated manually if desired. }
     - {
         label: Section,
         name: section,
         widget: list,
-        required: true,
+        hint: A row on the page including content from given fields. Content is displayed depending on the value of the 'type' field.,
         fields:
           [
-            { label: Type, name: type, widget: select, options: [ "text", "title", "title-text", "title-subtitle-text", "title-text-image", "image", "gallery", "page-list" ], default: "text" },
-            { label: Section width/position, name: size, widget: select, required: false, options: ["narrow", "wide", "full-page", "page-head"], default: "narrow" },
-            { label: Alignment, name: alignment, widget: select, required: false, options: ["left", "center"], default: "left" },
-            { label: Title, name: title, widget: string, required: false },
-            { label: Subtitle, name: subtitle, widget: string, required: false },
-            { label: Text, name: text, widget: markdown, required: false },
+            { label: Section content, name: type, widget: select, options: [text, title, title-text, title-subtitle-text, title-text-image, image, gallery, page-list], default: text, hint: Specifies which content should be displayed in the section. },
+            { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should fit the content width or span across the entire screen width. },
+            { label: Content alignment, name: alignment, widget: select, required: false, options: [left, center], default: left, hint: Specifies where content should align. },
+            { label: Title, name: title, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a bigger title above further content. Also displays an anchor element which can be referenced by buttons. },
+            { label: Subtitle, name: subtitle, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a smaller subtitle above further content. },
+            { label: Text, name: text, widget: markdown, required: false, hint: Displays rich text. },
             {
               label: Image,
               name: image,
               widget: object,
               required: false,
+              hint: Displays an image that fits the content width or spans across the entire screen width.,
               fields:
                 [
                   { label: File, name: file, widget: image, required: false },
-                  { label: Size, name: size, widget: select, required: false, options: ["square", "full-width"] },
+                  { label: Size, name: size, widget: select, required: false, options: [auto, square, full-width] },
                 ]
             },
             {
@@ -53,6 +66,7 @@ project:
               name: gallery,
               widget: object,
               required: false,
+              hint: Displays an image gallery with clickable images that open in a lightbox.,
               fields:
                 [
                   { label: Type, name: type, widget: hidden, default: "auto" },
@@ -70,49 +84,157 @@ project:
                 ]
             },
             {
-              label: Show pages in gallery,
+              label: Show pages in a list,
               name: pageList,
               widget: select,
               required: false,
+              hint: Displays an image gallery with links to pages of a collection.,
               options:
                 [
                   { label: Photo collections, value: photo-collections },
                   { label: Blog pages, value: blog-pages }
                 ]
             },
-            { label: Button label, name: buttonLabel, widget: string, required: false },
-            { label: Button link, name: buttonLink, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
+            { label: Button label, name: buttonLabel, widget: string, required: false, pattern: ['^.{5,20}$', "Must have max. 20 characters"], hint: Label to be displayed on the button. },
+            { label: Button link, name: buttonLink, widget: string, required: false, hint: "Page or element to be linked. Page link with leading '/', link to element with leading '#'." }
           ]
       }
+  - &photoPageContent
+    - { label: Template Key, name: templateKey, widget: hidden, default: general-page }
+    - { label: Page title, name: seoTitle, widget: string, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Give the page a clear name (max. 50 characters). }
+    - { label: Page description, name: seoDescription, widget: string, pattern: ['^.{50,150}$', "Must have 50-150 characters"], hint: Describe the page content in 50-150 characters. }
+    - { label: URL path, name: path, widget: string, pattern: ['^\/', "Must have a prepending forward slash ('/')"], hint: Path where the page is accessed. Needs to have a prepending '/'. }
+    - { label: Page image, name: pageImage, widget: image, required: false, hint: A big image at the start of the page that is displayed only if the 'Show page image' field is set. }
+    - { 
+        label: Show page image,
+        name: showPageImage,
+        widget: select,
+        hint: "'full-page' fills the entire page and displays content from the first section it, 'page-head' includes the page title and 'page-start' only an image.",
+        options:
+          [
+            { label: "false", value: "false" },
+            { label: full-page, value: full-page },
+            { label: page-header, value: page-header },
+            { label: page-start, value: page-start }
+          ],
+        default: "false"
+      }
+    - { label: Category, name: category, widget: select, options: [america, asia, europe, desert, tropics, forest, urban], hint: Used to filter pages when displayed in an page list. }
+    - { label: Last edited, name: date, widget: datetime, date_format: YYYY-MM-DD, hint: A date to track when the page was last edited. Displays nowhere and has to be updated manually if desired. }
+    - {
+        label: Section,
+        name: section,
+        widget: list,
+        hint: A row on the page including content from given fields. Content is displayed depending on the value of the 'type' field.,
+        fields:
+          [
+            { label: Section content, name: type, widget: select, options: [text, title, title-text, title-subtitle-text, title-text-image, image, gallery, page-list], default: text, hint: Specifies which content should be displayed in the section. },
+            { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should fit the content width or span across the entire screen width. },
+            { label: Content alignment, name: alignment, widget: select, required: false, options: [left, center], default: left, hint: Specifies where content should align. },
+            { label: Title, name: title, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a bigger title above further content. Also displays an anchor element which can be referenced by buttons. },
+            { label: Subtitle, name: subtitle, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a smaller subtitle above further content. },
+            { label: Text, name: text, widget: markdown, required: false, hint: Displays rich text. },
+            {
+              label: Image,
+              name: image,
+              widget: object,
+              required: false,
+              hint: Displays an image that fits the content width or spans across the entire screen width.,
+              fields:
+                [
+                  { label: File, name: file, widget: image, required: false },
+                  { label: Size, name: size, widget: select, required: false, options: [auto, square, full-width] },
+                ]
+            },
+            {
+              label: Gallery,
+              name: gallery,
+              widget: object,
+              required: false,
+              hint: Displays an image gallery with clickable images that open in a lightbox.,
+              fields:
+                [
+                  { label: Type, name: type, widget: hidden, default: "auto" },
+                  {
+                    label: Photos,
+                    name: photos,
+                    widget: list,
+                    required: false,
+                    fields:
+                      [
+                        { label: Title, name: title, widget: string, required: false },
+                        { label: Image, name: image, widget: image, required: false },
+                      ],
+                  },
+                ]
+            },
+            {
+              label: Show pages in a list,
+              name: pageList,
+              widget: select,
+              required: false,
+              hint: Displays an image gallery with links to pages of a collection.,
+              options:
+                [
+                  { label: Photo collections, value: photo-collections },
+                  { label: Blog pages, value: blog-pages }
+                ]
+            },
+            { label: Button label, name: buttonLabel, widget: string, required: false, pattern: ['^.{5,20}$', "Must have max. 20 characters"], hint: Label to be displayed on the button. },
+            { label: Button link, name: buttonLink, widget: string, required: false, hint: "Page or element to be linked. Page link with leading '/', link to element with leading '#'." }
+          ]
+      }
+  - &blogPageContent
+    - { label: Template Key, name: templateKey, widget: hidden, default: blog-page }
+    - { label: Page title, name: seoTitle, widget: string, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Give the page a clear name (max. 50 characters). }
+    - { label: Page description, name: seoDescription, widget: string, pattern: ['^.{50,150}$', "Must have 50-150 characters"], hint: Describe the page content in 50-150 characters. }
+    - { label: URL path, name: path, widget: string, pattern: ['^\/', "Must have a prepending forward slash ('/')"], hint: Path where the page is accessed. Needs to have a prepending '/'. }
+    - { label: Page image, name: pageImage, widget: image, required: false, hint: A big image at the start of the page that is displayed only if the 'Show page image' field is set. }
+    - { 
+        label: Show page image,
+        name: showPageImage,
+        widget: select,
+        hint: "'page-head' includes the page title and 'page-start' only an image at the start of the page.",
+        options:
+          [
+            { label: "false", value: "false" },
+            { label: page-header, value: page-header },
+            { label: page-start, value: page-start }
+          ],
+        default: "false"
+      }
+    - { label: Creation date, name: date, widget: datetime, date_format: YYYY-MM-DD, hint: The date displayed as creation date in the blog entry. }
+    - { label: Category, name: category, widget: select, options: [growth, personal, photography, sustainability, travel], hint: Used to filter pages when displayed in an page list. }
+    - { label: Text, name: text, widget: markdown, hint: Displays rich text. }
 
 collections:
   - name: pages
-    label: Overview pages
+    label: General pages
     files:
       - file: src/pages/collections.md
         label: Collections
         name: collections
-        fields: *followupContent 
+        fields: *generalPageContent 
       - file: src/pages/journal.md
         label: Journal
         name: journal
-        fields: *followupContent    
+        fields: *generalPageContent    
       - file: src/pages/about.md
         label: About
         name: about
-        fields: *followupContent
+        fields: *generalPageContent
       - file: src/pages/contact.md
         label: Contact
         name: contact
-        fields: *followupContent
+        fields: *generalPageContent
       - file: src/pages/imprint.md
         label: Imprint
         name: imprint
-        fields: *followupContent
+        fields: *generalPageContent
       - file: src/pages/privacy-policy.md
         label: Privacy policy
         name: privacy-policy
-        fields: *followupContent
+        fields: *generalPageContent
 
   - name: photo-collection
     label: Photo collection
@@ -121,7 +243,7 @@ collections:
     media_folder: ""
     public_folder: ""
     create: true
-    fields: *followupContent
+    fields: *photoPageContent
 
   - name: blog
     label: Journal entry
@@ -130,7 +252,7 @@ collections:
     media_folder: ""
     public_folder: ""
     create: true
-    fields: *followupContent
+    fields: *blogPageContent
 
   - name: settings
     label: Settings
@@ -145,7 +267,7 @@ collections:
               widget: list,
               fields:
                 [
-                  { label: Label, name: label, widget: string, required: false },
+                  { label: Label, name: label, widget: string, pattern: ['^.{5,20}$', "Must have max. 20 characters"], required: false },
                   { label: Page, name: link, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
                 ]
             }
@@ -159,7 +281,7 @@ collections:
               widget: list,
               fields:
                 [
-                  { label: Label, name: label, widget: string, required: false },
+                  { label: Label, name: label, widget: string, pattern: ['^.{5,20}$', "Must have max. 20 characters"], required: false },
                   { label: Page, name: link, widget: relation, collection: pages, search_fields: [path], value_field: path, display_fields: [seoTitle], required: false }
                 ]
             }
@@ -173,4 +295,4 @@ collections:
                   { label: Link, name: link, widget: string, required: false }
                 ]
             }
-          - { label: Copyright text (after © 2020), name: copyright, widget: string }
+          - { label: Copyright text, name: copyright, widget: string, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Text after '© 2021'. }

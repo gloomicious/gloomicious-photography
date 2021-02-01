@@ -3,9 +3,6 @@
 .image {
   &__wrapper {
     position: relative;
-  }
-
-  &--full-width {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100vw - #{$spacing-sm * 2});

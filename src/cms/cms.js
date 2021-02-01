@@ -1,18 +1,19 @@
 import CMS from "netlify-cms-app"
 
-import FollowupPagePreview from "./preview-templates/FollowupPagePreview"
+import GeneralPagePreview from "./preview-templates/GeneralPagePreview"
+import BlogPageTemplate from "./preview-templates/BlogPagePreview"
 import NavbarPreview from "./preview-templates/NavbarPreview"
 import FooterPreview from "./preview-templates/FooterPreview"
 
-CMS.registerPreviewTemplate("index", FollowupPagePreview)
-CMS.registerPreviewTemplate("explore", FollowupPagePreview)
-CMS.registerPreviewTemplate("collections", FollowupPagePreview)
-CMS.registerPreviewTemplate("journal", FollowupPagePreview)
-CMS.registerPreviewTemplate("about", FollowupPagePreview)
-CMS.registerPreviewTemplate("contact", FollowupPagePreview)
-CMS.registerPreviewTemplate("imprint", FollowupPagePreview)
-CMS.registerPreviewTemplate("privacy-policy", FollowupPagePreview)
-CMS.registerPreviewTemplate("photo-collection", FollowupPagePreview)
-CMS.registerPreviewTemplate("blog", FollowupPagePreview)
+CMS.registerPreviewTemplate("index", GeneralPagePreview)
+CMS.registerPreviewTemplate("explore", GeneralPagePreview)
+CMS.registerPreviewTemplate("collections", GeneralPagePreview)
+CMS.registerPreviewTemplate("journal", GeneralPagePreview)
+CMS.registerPreviewTemplate("about", GeneralPagePreview)
+CMS.registerPreviewTemplate("contact", GeneralPagePreview)
+CMS.registerPreviewTemplate("imprint", GeneralPagePreview)
+CMS.registerPreviewTemplate("privacy-policy", GeneralPagePreview)
+CMS.registerPreviewTemplate("photo-collection", GeneralPagePreview)
+CMS.registerPreviewTemplate("blog", BlogPageTemplate)
 CMS.registerPreviewTemplate("navbar", NavbarPreview)
 CMS.registerPreviewTemplate("footer", FooterPreview)
