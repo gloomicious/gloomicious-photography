@@ -10,16 +10,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: initial;
   }
 
   &.dark {
-    #{$p}__logo {
-      &:hover svg {
-        fill: $primary;
+    #{$p}__logo,
+    #{$p}__link {
+      color: $light;
+
+      &:hover {
+        color: $gray-2;
       }
 
       svg {
+        fill: $primary;
+      }
+    }
+
+    #{$p}__theme-toggle {
+      svg {
         fill: $light;
+
+        &:hover {
+          fill: $gray-2;
+        }
       }
     }
   }
@@ -79,12 +93,6 @@
     color: inherit;
     @media screen and (min-width: $screen-md) {
       margin-bottom: initial;
-    }
-
-    &:hover {
-      svg {
-        fill: $primary-light;
-      }
     }
 
     &__icon {

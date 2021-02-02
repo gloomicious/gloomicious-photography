@@ -6,80 +6,82 @@ import SEO from "../components/seo/Seo"
 import ImageBox from "../components/image-box/ImageBox"
 import Section from "../components/section/Section"
 
-export const GeneralPageTemplate = ({
+export function GeneralPageTemplate({
   pageTitle,
   pageImage,
   showPageImage,
   sections,
-}) => (
-  <Layout>
-    {pageImage && showPageImage === "full-page" ? (
-      <>
-        <ImageBox filename={pageImage} size={showPageImage} />
-        <Section
-          title={sections[0].title}
-          subtitle={sections[0].subtitle}
-          alignment={sections[0].alignment}
-          type={sections[0].type}
-          size={showPageImage}
-          buttonLabel={sections[0].buttonLabel}
-          buttonLink={sections[0].buttonLink}
-          text={sections[0].text}
-        />
-        {sections.slice(1).map((item, index) => (
+}) {
+  return (
+    <Layout>
+      {pageImage && showPageImage === "full-page" ? (
+        <>
+          <ImageBox filename={pageImage} size={showPageImage} />
           <Section
-            title={item.title}
-            subtitle={item.subtitle}
-            alignment={item.alignment}
-            type={item.type}
-            size={item.size}
-            buttonLabel={item.buttonLabel}
-            buttonLink={item.buttonLink}
-            text={item.text}
-            image={item.image}
-            gallery={item.gallery}
-            pageListType={item.pageList}
-            key={index}
+            title={sections[0].title}
+            subtitle={sections[0].subtitle}
+            alignment={sections[0].alignment}
+            type={sections[0].type}
+            size={showPageImage}
+            buttonLabel={sections[0].buttonLabel}
+            buttonLink={sections[0].buttonLink}
+            text={sections[0].text}
           />
-        ))}
-      </>
-    ) : (
-      <>
-        {pageImage && showPageImage ? (
-          <>
-            {showPageImage === "page-head" && (
-              <>
-                <ImageBox filename={pageImage} size={showPageImage}>
-                  <h1>{pageTitle}</h1>
-                </ImageBox>
-                <Section type="empty" />
-              </>
-            )}
-            {showPageImage === "page-start" && (
-              <ImageBox filename={pageImage} size={showPageImage} />
-            )}
-          </>
-        ) : null}
-        {sections.map((item, index) => (
-          <Section
-            title={item.title}
-            subtitle={item.subtitle}
-            alignment={item.alignment}
-            type={item.type}
-            size={item.size}
-            buttonLabel={item.buttonLabel}
-            buttonLink={item.buttonLink}
-            text={item.text}
-            image={item.image}
-            gallery={item.gallery}
-            pageListType={item.pageList}
-            key={index}
-          />
-        ))}
-      </>
-    )}
-  </Layout>
-)
+          {sections.slice(1).map((item, index) => (
+            <Section
+              title={item.title}
+              subtitle={item.subtitle}
+              alignment={item.alignment}
+              type={item.type}
+              size={item.size}
+              buttonLabel={item.buttonLabel}
+              buttonLink={item.buttonLink}
+              text={item.text}
+              image={item.image}
+              gallery={item.gallery}
+              pageListType={item.pageList}
+              key={index}
+            />
+          ))}
+        </>
+      ) : (
+        <>
+          {pageImage && showPageImage ? (
+            <>
+              {showPageImage === "page-head" && (
+                <>
+                  <ImageBox filename={pageImage} size={showPageImage}>
+                    <h1>{pageTitle}</h1>
+                  </ImageBox>
+                  <Section type="empty" />
+                </>
+              )}
+              {showPageImage === "page-start" && (
+                <ImageBox filename={pageImage} size={showPageImage} />
+              )}
+            </>
+          ) : null}
+          {sections.map((item, index) => (
+            <Section
+              title={item.title}
+              subtitle={item.subtitle}
+              alignment={item.alignment}
+              type={item.type}
+              size={item.size}
+              buttonLabel={item.buttonLabel}
+              buttonLink={item.buttonLink}
+              text={item.text}
+              image={item.image}
+              gallery={item.gallery}
+              pageListType={item.pageList}
+              key={index}
+            />
+          ))}
+        </>
+      )}
+    </Layout>
+  )
+}
 
 GeneralPageTemplate.propTypes = {
   pageImage: PropTypes.string,

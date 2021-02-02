@@ -6,23 +6,29 @@ import dataFromFile from "../../settings/navbar.yml"
 import ThemeToggle from "./../theme-toggle/ThemeToggle"
 import Icon from "../icon/Icon"
 
-function Navbar({ theme, size, content }) {
+function Navbar({ theme, content }) {
   let data = content ? content : dataFromFile
 
   return (
-    <nav className={`navbar ${theme.name}${size ? ` navbar--${size}` : ""}`}>
+    <nav className={`navbar ${theme.name}`} id="navbar">
       <Link to="/" className="navbar__logo">
         <Icon name="logo gloomicious" className="navbar__logo__icon" />
         <span className="navbar__logo__text">gloomicious</span>
       </Link>
-      <ThemeToggle theme={theme} className="navbar__theme-toggle--mobile" />
+      <ThemeToggle
+        theme={theme}
+        className="navbar__theme-toggle navbar__theme-toggle--mobile"
+      />
       <div className="navbar__links">
         {data.links.map((item, index) => (
           <Link to={item.link} className="navbar__link" key={index}>
             {item.label}
           </Link>
         ))}
-        <ThemeToggle theme={theme} className="navbar__theme-toggle--desktop" />
+        <ThemeToggle
+          theme={theme}
+          className="navbar__theme-toggle navbar__theme-toggle--desktop"
+        />
       </div>
     </nav>
   )
@@ -30,7 +36,6 @@ function Navbar({ theme, size, content }) {
 
 Navbar.propTypes = {
   theme: PropTypes.object,
-  size: PropTypes.string,
   content: PropTypes.object,
 }
 

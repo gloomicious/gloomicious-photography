@@ -5,6 +5,51 @@ import BackgroundImage from "gatsby-background-image"
 import "./ImageBox.scss"
 
 function ImageBox({ filename, size, alt, className, children }) {
+  const [navbar, setNavbar] = React.useState("")
+  const [fullpageButton, setFullpageButton] = React.useState("")
+  const forceLightTheme = React.useCallback(() => {
+    if (navbar && navbar.classList.contains("light")) {
+      navbar.classList.remove("light")
+      navbar.classList.add("dark")
+    }
+    if (fullpageButton && fullpageButton.classList.contains("light")) {
+      fullpageButton.classList.remove("light")
+      fullpageButton.classList.add("dark")
+    }
+  }, [navbar, fullpageButton])
+  let navbarObserver = new MutationObserver(forceLightTheme),
+    fullpageButtonObserver = new MutationObserver(forceLightTheme)
+
+  React.useEffect(() => {
+    setNavbar(document.querySelector("nav"))
+    setFullpageButton(document.querySelector(".section--full-page .button"))
+    if (navbar && (size === "full-page" || size === "page-head")) {
+      forceLightTheme()
+      navbarObserver.observe(navbar, {
+        attributes: true,
+        attributeFilter: ["class"],
+      })
+    }
+    if (fullpageButton && (size === "full-page" || size === "page-head")) {
+      forceLightTheme()
+      fullpageButtonObserver.observe(fullpageButton, {
+        attributes: true,
+        attributeFilter: ["class"],
+      })
+    }
+    return () => {
+      navbarObserver.disconnect()
+      fullpageButtonObserver.disconnect()
+    }
+  }, [
+    navbar,
+    fullpageButton,
+    size,
+    navbarObserver,
+    fullpageButtonObserver,
+    forceLightTheme,
+  ])
+
   return (
     <StaticQuery
       query={graphql`
@@ -45,7 +90,13 @@ function ImageBox({ filename, size, alt, className, children }) {
               preserveStackingContext={true}
               backgroundColor={`#161a1b`}
             >
-              <div className="image-box__content">{children}</div>
+              <div
+                className={`image-box__content${
+                  size ? ` image-box__content--${size}` : ""
+                }`}
+              >
+                {children}
+              </div>
             </BackgroundImage>
           </div>
         )
