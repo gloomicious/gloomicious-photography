@@ -8,6 +8,7 @@ import "./Gallery.scss"
 
 function Gallery({ items, type, filters }) {
   const [currentFilter, setCurrentFilter] = useState("all"),
+    [currentLightbox, setCurrentLightbox] = useState(""),
     [animate, setAnimate] = useState(false),
     [lightboxOpened, setLightboxOpened] = useState(false)
   let filterAllLabel = ["all"],
@@ -101,22 +102,13 @@ function Gallery({ items, type, filters }) {
 
   function RenderItemWithLightbox(item) {
     return (
-      <>
-        {lightboxOpened && (
-          <Lightbox
-            open={lightboxOpened}
-            setOpen={setLightboxOpened}
-            item={item}
-          />
-        )}
-        <div
-          className="gallery__item"
-          onClick={() => setLightboxOpened(true)}
-          role="presentation"
-        >
-          <Image filename={item.image} className="gallery__item__image" />
-        </div>
-      </>
+      <div
+        className="gallery__item"
+        onClick={() => RenderLightbox(item)}
+        role="presentation"
+      >
+        <Image filename={item.image} className="gallery__item__image" />
+      </div>
     )
   }
 
@@ -138,8 +130,16 @@ function Gallery({ items, type, filters }) {
     )
   }
 
+  function RenderLightbox(item) {
+    if (item) {
+      setLightboxOpened(true)
+      setCurrentLightbox(<Lightbox setOpen={setLightboxOpened} item={item} />)
+    }
+  }
+
   return (
     <>
+      {lightboxOpened && currentLightbox}
       <div
         className={`gallery gallery--${type}${
           animate ? " gallery--animated" : ""
