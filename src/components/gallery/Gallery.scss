@@ -17,17 +17,6 @@
     }
   }
 
-  &--auto,
-  &--label {
-    @media screen and (min-width: $screen-xl) {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100vw - #{$spacing-sm * 2});
-      max-width: $site-width;
-    }
-  }
-
   &--auto {
     display: block;
     column-count: 1;

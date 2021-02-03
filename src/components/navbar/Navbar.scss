@@ -1,6 +1,7 @@
 @import "styles/variables.scss";
 
 .navbar {
+  @include not-selectable();
   $p: &;
   position: relative;
   margin-top: $spacing-lg;

@@ -11,15 +11,13 @@ export default function NotFoundPage() {
         description="404 Error - This page doesn't exist here."
       />
       <Section
-        type="title-text"
+        type="1-column"
         title="Got Lost?"
-        text="<p>
-        It seems like you tried to go somewhere where there's... nothing. But
-        don't worry - there always is a way and so much left to see. Go give it
-        a try and start all over!
-      </p>"
+        content="It seems like you tried to go somewhere where there's... nothing. But
+          don't worry - there always is a way and so much left to see. Go give it
+          a try and start all over!"
         buttonLabel="Show me the way"
-        buttonLink=""
+        buttonLink="/"
       />
     </Layout>
   )

@@ -7,17 +7,19 @@ path: /
 pageImage: a7_01040.jpg
 showPageImage: full-page
 section:
-  - type: title
+  - type: 1-column
+    size: narrow
     title: Our planet is beautiful
     alignment: center
     buttonLabel: Let me show you
-    buttonLink: "#explore"
-  - type: text
-    title: explore
+    buttonLink: "#expanding-horizons"
+  - type: 1-column
+    size: narrow
+    title: Expanding horizons
     alignment: center
     buttonLabel: Explore collections
     buttonLink: /collections
-    text: >-
+    content: >-
       Welcome to this space of the internet which is dedicated to showcasing the
       earth's diversity, beauty and unique moments it creates! The world has so
       much to offer, yet many people experience so little of it by themselves.
@@ -27,7 +29,8 @@ section:
 
 
       Follow me on my journey to witness the beauty of planet earth, discover and adventure - through the lens of my camera. Be inspired, expand your horizon and have fun exploring!
-  - type: gallery
+  - type: 1-column
+    size: wide
     gallery:
       type: auto
       photos:

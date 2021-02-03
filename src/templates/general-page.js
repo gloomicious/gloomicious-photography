@@ -25,7 +25,7 @@ export function GeneralPageTemplate({
             size={showPageImage}
             buttonLabel={sections[0].buttonLabel}
             buttonLink={sections[0].buttonLink}
-            text={sections[0].text}
+            content={sections[0].content}
           />
           {sections.slice(1).map((item, index) => (
             <Section
@@ -36,7 +36,7 @@ export function GeneralPageTemplate({
               size={item.size}
               buttonLabel={item.buttonLabel}
               buttonLink={item.buttonLink}
-              text={item.text}
+              content={item.content}
               image={item.image}
               gallery={item.gallery}
               pageListType={item.pageList}
@@ -70,7 +70,7 @@ export function GeneralPageTemplate({
               size={item.size}
               buttonLabel={item.buttonLabel}
               buttonLink={item.buttonLink}
-              text={item.text}
+              content={item.content}
               image={item.image}
               gallery={item.gallery}
               pageListType={item.pageList}
@@ -137,7 +137,7 @@ export const pageQuery = graphql`
           pageList
           buttonLabel
           buttonLink
-          text
+          content
           image {
             file
             size

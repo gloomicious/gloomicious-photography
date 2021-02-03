@@ -12,7 +12,7 @@ function BlogPagePreview({ entry }) {
         pageImage={data.pageImage}
         showPageImage={data.showPageImage}
         creationDate={data.date}
-        text={data.text}
+        content={data.content}
       />
     )
   } else {

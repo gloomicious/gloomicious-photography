@@ -7,16 +7,17 @@ import ThemeToggle from "./../theme-toggle/ThemeToggle"
 import Icon from "../icon/Icon"
 
 function Navbar({ theme, content }) {
-  let data = content ? content : dataFromFile
+  let data = content ? content : dataFromFile,
+    currentTheme = theme ? theme : { name: "light" }
 
   return (
-    <nav className={`navbar ${theme.name}`} id="navbar">
+    <nav className={`navbar ${currentTheme.name}`} id="navbar">
       <Link to="/" className="navbar__logo">
         <Icon name="logo gloomicious" className="navbar__logo__icon" />
         <span className="navbar__logo__text">gloomicious</span>
       </Link>
       <ThemeToggle
-        theme={theme}
+        theme={currentTheme}
         className="navbar__theme-toggle navbar__theme-toggle--mobile"
       />
       <div className="navbar__links">
@@ -26,7 +27,7 @@ function Navbar({ theme, content }) {
           </Link>
         ))}
         <ThemeToggle
-          theme={theme}
+          theme={currentTheme}
           className="navbar__theme-toggle navbar__theme-toggle--desktop"
         />
       </div>

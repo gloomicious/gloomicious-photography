@@ -1,31 +1,22 @@
 ---
 templateKey: general-page
 seoTitle: Imprint
-seoDescription: Imprint for gloomicious.com
+seoDescription: This is a description to tell more about what the page is about.
 path: /imprint
+showPageImage: "false"
+date: 2021-02-03T09:15:06.901Z
 section:
-  - type: title-text
+  - type: 1-column
+    size: narrow
     title: German version
-    text: >-
+    content: >-
       **Angaben gemäß § 5 TMG:**
 
 
       Jennifer Hornig
 
 
-      Allmendstraße 16
-
-
-      76275 Ettlingen
-
-
-      Deutschland
-
-
       **Kontakt:**
-
-
-      Telefon: +4915226568706
 
 
       E-Mail: gloomicious@gmail.com
@@ -59,9 +50,11 @@ section:
 
 
       Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-  - type: title-text
+    alignment: left
+  - type: 1-column
+    size: narrow
     title: English version
-    text: >-
+    content: >-
       **Site Notice Information provided according to Sec. 5 German Telemedia
       Act (TMG):**
 
@@ -69,19 +62,7 @@ section:
       Jennifer Hornig
 
 
-      Allmendstraße 16
-
-
-      76275 Ettlingen
-
-
-      Germany
-
-
       **Contact:**
-
-
-      Telefon: +4915226568706
 
 
       E-Mail: gloomicious@gmail.com
@@ -115,4 +96,5 @@ section:
 
 
       Contents and compilations published on these websites by the providers are subject to German copyright laws. Reproduction, editing, distribution as well as the use of any kind outside the scope of the copyright law require a written permission of the author or originator. Downloads and copies of these websites are permitted for private use only. The commercial use of our contents without permission of the originator is prohibited. Copyright laws of third parties are respected as long as the contents on these websites do not originate from the provider. Contributions of third parties on this site are indicated as such. However, if you notice any violations of copyright law, please inform us. Such contents will be removed immediately.
+    alignment: left
 ---

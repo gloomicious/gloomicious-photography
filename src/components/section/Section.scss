@@ -12,11 +12,6 @@
     text-align: center;
   }
 
-  &--right {
-    align-items: flex-end;
-    text-align: right;
-  }
-
   &--wide {
     position: relative;
     left: 50%;
@@ -101,9 +96,14 @@
     bottom: 0;
   }
 
-  &__title,
-  &__subtitle {
+  &__title {
     margin-bottom: $spacing-xs;
+  }
+
+  &__subtitle {
+    margin-bottom: $spacing-xxs;
+    font-size: $font-xs;
+    text-transform: uppercase;
   }
 
   &__button {

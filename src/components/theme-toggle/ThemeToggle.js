@@ -6,8 +6,11 @@ import "./ThemeToggle.scss"
 function ThemeToggle({ theme, className }) {
   return (
     <div
-      className={`theme-toggle ${className ? className : ""} ${theme.name} `}
+      className={`theme-toggle${className ? ` ${className}` : ""} ${
+        theme.name
+      } `}
       onClick={() =>
+        theme.updateTheme &&
         theme.updateTheme(theme.name === "light" ? "dark" : "light")
       }
       role="presentation"

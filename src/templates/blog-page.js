@@ -34,7 +34,7 @@ export const BlogPageTemplate = ({
   pageImage,
   showPageImage,
   creationDate,
-  text,
+  content,
 }) => (
   <Layout>
     {pageImage && showPageImage ? (
@@ -52,12 +52,12 @@ export const BlogPageTemplate = ({
         )}
       </>
     ) : null}
-    {text && (
+    {content && (
       <Section
-        type="subtitle-title-text"
+        type="1-column"
         title={pageTitle}
         subtitle={FormatDate(creationDate)}
-        text={text}
+        content={content}
       />
     )}
   </Layout>
@@ -68,7 +68,7 @@ BlogPageTemplate.propTypes = {
   pageImage: PropTypes.string,
   showPageImage: PropTypes.string,
   creationDate: PropTypes.string,
-  text: PropTypes.string,
+  content: PropTypes.string,
 }
 
 function BlogPage({ data }) {
@@ -84,7 +84,7 @@ function BlogPage({ data }) {
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
         creationDate={frontmatter.date}
-        text={frontmatter.text}
+        content={frontmatter.content}
       />
     </>
   )
@@ -113,7 +113,7 @@ export const pageQuery = graphql`
         showPageImage
         date
         category
-        text
+        content
       }
     }
   }

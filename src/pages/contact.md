@@ -1,14 +1,15 @@
 ---
 templateKey: general-page
 seoTitle: Contact
-seoDescription: Contact gloomicious.com
+seoDescription: This is a description to tell more about what the page is about.
 path: /contact
-date: 2020-12-24T14:53:02.873Z
+showPageImage: "false"
+date: 2021-02-03T09:14:32.295Z
 section:
-  - type: title-text-image
-    title: Get to know me
+  - type: 2-columns
     size: wide
-    text: >-
+    title: Get to know me
+    content: >-
       Have something you want to share? I'm always happy to get in touch,
       whether it's for a talk, thoughts on my photos and stories or interest in
       working together.
@@ -20,4 +21,5 @@ section:
     image:
       file: a7_01581.jpg
       size: square
+    alignment: left
 ---

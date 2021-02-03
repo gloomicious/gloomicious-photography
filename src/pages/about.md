@@ -3,13 +3,14 @@ templateKey: general-page
 seoTitle: About
 seoDescription: About Jenny, the person behind the lens at gloomicious
 path: /about
-date: 2020-12-26T17:18:30.403Z
 pageImage: a7_01581.jpg
 showPageImage: page-start
+date: 2021-02-03T09:14:03.949Z
 section:
-  - type: title-text
+  - type: 1-column
+    size: narrow
     title: Behind the lens
-    text: >-
+    content: >-
       Hi there! I'm Jenny and I'm the human behind the camera. I created
       gloomicious to have a place where I can share my greatest passions with
       the world - photography and exploration. My aim is to showcase the
@@ -30,4 +31,5 @@ section:
 
 
       You are invited to join me on [my journey](/journal) through this world and life to explore as much of it as I can. Because if it's one thing I learned throughout the years it is that it's not about the destination, but the journey - and life is the biggest one of them.
+    alignment: left
 ---
