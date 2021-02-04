@@ -48,7 +48,7 @@ function Section({
             </div>
           </div>
         )
-      case gallery != null:
+      case gallery != null && gallery.photos != null:
         return <Gallery items={gallery.photos} type={gallery.type} />
       case pageListType != null:
         return <PageList pageType={pageListType} />

@@ -84,7 +84,7 @@ function BlogPage({ data }) {
         pageImage={frontmatter.pageImage}
         showPageImage={frontmatter.showPageImage}
         creationDate={frontmatter.date}
-        content={frontmatter.content}
+        content={data.markdownRemark.html}
       />
     </>
   )
@@ -105,6 +105,7 @@ export const pageQuery = graphql`
     markdownRemark(
       frontmatter: { path: { eq: $path }, templateKey: { eq: "blog-page" } }
     ) {
+      html
       frontmatter {
         path
         seoTitle
@@ -113,7 +114,6 @@ export const pageQuery = graphql`
         showPageImage
         date
         category
-        content
       }
     }
   }

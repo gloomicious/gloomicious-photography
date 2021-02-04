@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import showdown from "showdown"
+import "./MarkdownContent.scss"
 
 function MarkdownContent({ content, className }) {
   const converter = new showdown.Converter()

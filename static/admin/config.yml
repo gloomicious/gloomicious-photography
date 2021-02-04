@@ -12,7 +12,6 @@ site_url: https://gloomicious.com
 display_url: https://gloomicious.com
 
 media_folder: src/images
-public_folder: ""
 
 project:
   - &generalPageContent
@@ -48,7 +47,7 @@ project:
             { label: Content alignment, name: alignment, widget: select, options: [left, center], default: left, hint: Specifies where content should align. },
             { label: Title, name: title, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a bigger title above further content. Also displays an anchor element which can be referenced by buttons. },
             { label: Subtitle, name: subtitle, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a smaller subtitle above further content. },
-            { label: Content, name: content, widget: markdown, required: false, hint: "Can include text, images, links and code snippets." },
+            { label: Content, name: content, widget: markdown, required: false, hint: Can include markdown formatted text. },
             {
               label: Image,
               name: image,
@@ -125,21 +124,21 @@ project:
         label: Section,
         name: section,
         widget: list,
-        hint: A row on the page including content from given fields. Content is displayed depending on the value of the 'type' field.,
+        hint: A row on the page including content from given fields. Content is displayed if the corresponding field contains a value.,
         fields:
           [
-            { label: Section content, name: type, widget: select, options: [text, title, title-text, title-subtitle-text, title-text-image, image, gallery, page-list], default: text, hint: Specifies which content should be displayed in the section. },
-            { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should fit the content width or span across the entire screen width. },
+            { label: Section content, name: type, widget: select, options: [1-column, 2-columns], default: 1-column, hint: "'1-column' shows all content in one column, '2-columns' requires an image and shows title, text and button on the left and the image on the right." },
+            { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should be narrow or span across the entire screen width. },
             { label: Content alignment, name: alignment, widget: select, options: [left, center], default: left, hint: Specifies where content should align. },
             { label: Title, name: title, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a bigger title above further content. Also displays an anchor element which can be referenced by buttons. },
             { label: Subtitle, name: subtitle, widget: string, required: false, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Displays a smaller subtitle above further content. },
-            { label: Content, name: content, widget: markdown, required: false, hint: "Can include text, images, links and code snippets." },
+            { label: Content, name: content, widget: markdown, required: false, hint: Can include markdown formatted text. },
             {
               label: Image,
               name: image,
               widget: object,
               required: false,
-              hint: Displays an image that fits the content width or spans across the entire screen width.,
+              hint: "Displays an image that can fit the content width ('auto'), be a square or span across the entire screen width.",
               fields:
                 [
                   { label: File, name: file, widget: image, required: false },
@@ -168,18 +167,6 @@ project:
                   },
                 ]
             },
-            {
-              label: Show pages in a list,
-              name: pageList,
-              widget: select,
-              required: false,
-              hint: Displays an image gallery with links to pages of a collection.,
-              options:
-                [
-                  { label: Photo collections, value: photo-collections },
-                  { label: Blog pages, value: blog-pages }
-                ]
-            },
             { label: Button label, name: buttonLabel, widget: string, required: false, pattern: ['^.{5,20}$', "Must have max. 20 characters"], hint: Label to be displayed on the button. },
             { label: Button link, name: buttonLink, widget: string, required: false, hint: "Page or element to be linked. Page link with leading '/', link to element with leading '#'." }
           ]
@@ -189,7 +176,7 @@ project:
     - { label: Page title, name: seoTitle, widget: string, pattern: ['^.{5,50}$', "Must have max. 50 characters"], hint: Give the page a clear name (max. 50 characters). }
     - { label: Page description, name: seoDescription, widget: string, pattern: ['^.{50,150}$', "Must have 50-150 characters"], hint: Describe the page content in 50-150 characters. }
     - { label: URL path, name: path, widget: string, pattern: ['^\/', "Must have a prepending forward slash ('/')"], hint: Path where the page is accessed. Needs to have a prepending '/'. }
-    - { label: Page image, name: pageImage, widget: image, required: false, hint: A big image at the start of the page that is displayed only if the 'Show page image' field is set. }
+    - { label: Page image, name: pageImage, widget: image, hint: A big image at the start of the page that is displayed only if the 'Show page image' field is set. }
     - { 
         label: Show page image,
         name: showPageImage,
@@ -205,7 +192,7 @@ project:
       }
     - { label: Creation date, name: date, widget: datetime, date_format: YYYY-MM-DD, hint: The date displayed as creation date in the blog entry. }
     - { label: Category, name: category, widget: select, options: [growth, personal, photography, sustainability, travel], hint: Used to filter pages when displayed in an page list. }
-    - { label: Content, name: content, widget: markdown, hint: "The blog's content. Can include text, images, links and code snippets." }
+    - { label: Content, name: body, widget: markdown, hint: "The blog's content. Can include text, images, links and code snippets." }
 
 collections:
   - name: pages

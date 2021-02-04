@@ -7,13 +7,10 @@ pageImage: dji_0218.jpg
 showPageImage: page-start
 date: 2020-12-26T23:00:00.000Z
 category: photography
-content: >-
-  One of the most asked questions in photography probably resolves around which
-  gear is used to get the photos you see on here.
+---
+One of the most asked questions in photography probably resolves around which gear is used to get the photos you see on here.
 
-
-  First and foremost: It should be common knowledge as of now that taking amazing photos and being a good photographer does not solely depend on the gear used but on the human behind the camera, so keep that in mind. It still can be insightful for some to know what I personally use to capture photos, so here's a list for all my fellow photographers and those interested in it.
-
+First and foremost: It should be common knowledge as of now that taking amazing photos and being a good photographer does not solely depend on the gear used but on the human behind the camera, so keep that in mind. It still can be insightful for some to know what I personally use to capture photos, so here's a list for all my fellow photographers and those interested in it.
 
   * **Camera**: Sony Alpha 7 II
 
@@ -30,8 +27,6 @@ content: >-
   * **Backpack**: WANDRD PRVKE 21L
 
 
-  I sometimes take photos with my phone if I don't have my camera with me, but only very few ever make it to the public. I have a Huawei Mate 20.
+I sometimes take photos with my phone if I don't have my camera with me, but only very few ever make it to the public. I have a Huawei Mate 20.
 
-
-  If you have any questions about what I use or just want to chat, feel free to [drop me a message](/contact)!
----
+If you have any questions about what I use or just want to chat, feel free to [drop me a message](/contact)!

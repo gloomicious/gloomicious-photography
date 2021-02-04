@@ -5,7 +5,13 @@ module.exports = {
     author: `@gloomicious`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -14,21 +20,29 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-sharp`,
-    {
       resolve: `gatsby-transformer-sharp`,
       options: {
         checkSupportedExtensions: false,
       },
     },
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              staticFolderName: "images",
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: { maxWidth: 2000 },
+          },
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -45,6 +59,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

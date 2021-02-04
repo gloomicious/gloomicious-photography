@@ -78,9 +78,9 @@ function ImageBox({ filename, size, alt, className, children }) {
         }
         return (
           <div
-            className={`image-box ${className ? className : ""} ${
-              size ? `image-box--${size}` : ""
-            }`}
+            className={`image-box${size ? ` image-box--${size}` : ""} ${
+              className ? ` ${className}` : ""
+            } `}
           >
             <div className="image-box__overlay"></div>
             <BackgroundImage

@@ -1,0 +1,8 @@
+@import "styles/variables.scss";
+
+.markdown-content {
+  .gatsby-resp-image-image,
+  .gatsby-resp-image-background-image {
+    border-radius: $border-radius-sm;
+  }
+}

@@ -17,7 +17,6 @@ section:
       beautiful places our planet has to offer and share it with everyone,
       especially those who never get to witness all of it by themselves.
 
-
       I'm from the south of Germany and grew up close to the Black Forest area. At the time writing I am 23 years old and studying media design and engineering with focus on web development. When I'm not taking or editing photos, I like to design and code websites (I also built this one) or play video games. For the future I want to visit as many places as I can and move to another country one day.
 
 

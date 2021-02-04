@@ -122,6 +122,7 @@ export const pageQuery = graphql`
     markdownRemark(
       frontmatter: { path: { eq: $path }, templateKey: { eq: "general-page" } }
     ) {
+      html
       frontmatter {
         path
         seoTitle
@@ -146,7 +147,6 @@ export const pageQuery = graphql`
             type
             photos {
               title
-              page
               image
             }
           }
