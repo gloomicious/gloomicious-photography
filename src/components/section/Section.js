@@ -86,7 +86,7 @@ function Section({
       )}
       <section
         className={`section${alignment ? ` section--${alignment}` : ""}${
-          size
+          size !== "narrow"
             ? type === "2-columns"
               ? ` section--wide`
               : ` section--${size}`

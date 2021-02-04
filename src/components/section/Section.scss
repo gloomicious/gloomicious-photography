@@ -15,9 +15,12 @@
   &--wide {
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
     width: calc(100vw - #{$spacing-sm * 2});
     max-width: $site-width;
+    margin-left: calc((100vw - #{$spacing-sm * 2}) / -2);
+    @media screen and (min-width: $screen-xl) {
+      margin-left: calc(#{$site-width} / -2);
+    }
   }
 
   &--full-page,
