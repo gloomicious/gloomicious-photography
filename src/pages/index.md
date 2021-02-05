@@ -20,15 +20,10 @@ section:
     buttonLabel: Explore collections
     buttonLink: /collections
     content: >-
-      Welcome to this space of the internet which is dedicated to showcasing the
-      earth's diversity, beauty and unique moments it creates! The world has so
-      much to offer, yet many people experience so little of it by themselves.
-      Through my photos I want to show you what's out there, dive into all
-      environments from desert to ocean, forest to cities and explore from every
-      perspective - the ground, the air and underwater.
-
-
-      Follow me on my journey to witness the beauty of planet earth, discover and adventure - through the lens of my camera. Be inspired, expand your horizon and have fun exploring!
+      The world has so much to offer, yet many people experience so little of it by themselves.
+      Photos enable us to capture the uniqueness of our surroundings, they are made to be shared.
+      Different perspectives reveal yet another, unknown view and through them we are abke to expand our horizons.
+      Join me on my journey to explore the Earth and discover its beauty along the way - from deserts to oceans, forests to cities, air to underwater.
   - type: 1-column
     size: wide
     gallery:

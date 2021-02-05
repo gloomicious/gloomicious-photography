@@ -15,7 +15,7 @@ section:
       *"It's not about the destination, it's about the journey."*
 
 
-      Every life, every journey is unique and source for experiences, moments and stories. This journal is a place to record some of mine, to save them for a later time and to be helpful, inspiring or even entertaining for others to read. I share stories behind photos, tips, insights, personal development and my life - so to say thoughts that come up in my head.
+      Every life, every journey, is unique and source for experiences, moments and stories. This journal is a place to record some of mine. I share stories behind photos, photography and travel tips, as well as thoughts on personal growth or other topics that come up in my head.
 
 
       Enjoy the read and feel free to [share your thoughts](/contact) with me if you'd like to!
