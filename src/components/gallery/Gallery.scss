@@ -137,7 +137,7 @@
       cursor: pointer;
 
       #{$p}__item {
-        &__image {
+        &__image > div {
           transform: scale(1.05);
         }
 
@@ -155,6 +155,10 @@
       position: absolute;
       top: 0;
       transition: $transition-fast;
+
+      > div {
+        transition: $transition-fast;
+      }
     }
 
     &__label {
