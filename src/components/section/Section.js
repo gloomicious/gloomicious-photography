@@ -78,12 +78,6 @@ function Section({
 
   return (
     <>
-      {title && (
-        <span
-          id={title.toLowerCase().replaceAll(" ", "-")}
-          className="section__anchor"
-        ></span>
-      )}
       <section
         className={`section${alignment ? ` section--${alignment}` : ""}${
           size !== "narrow"
@@ -93,6 +87,12 @@ function Section({
             : ""
         }${type === "empty" ? " section--empty" : ""}`}
       >
+        {title && (
+          <span
+            id={title.toLowerCase().replaceAll(" ", "-")}
+            className="section__anchor"
+          ></span>
+        )}
         {chooseContent()}
       </section>
     </>

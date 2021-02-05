@@ -1,6 +1,8 @@
 links:
   - label: Imprint
     link: /imprint
+  - label: Privacy Policy
+    link: /privacy-policy
 social:
   - icon: instagram
     link: https://www.instagram.com/gloomicious/

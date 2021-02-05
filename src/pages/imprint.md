@@ -1,11 +1,19 @@
 ---
 templateKey: general-page
 seoTitle: Imprint
-seoDescription: This is a description to tell more about what the page is about.
+seoDescription: Information regarding legal notices for Gloomicious Photography.
 path: /imprint
 showPageImage: "false"
-date: 2021-02-03T09:15:06.901Z
+date: 2021-02-05T13:00:27.903Z
 section:
+  - type: 1-column
+    size: narrow
+    alignment: left
+    gallery:
+      type: auto
+    content: Please find the [German version](#german-version) of the imprint in the
+      following section and the [English version](#english-version) below.
+    title: Imprint
   - type: 1-column
     size: narrow
     title: German version
@@ -19,7 +27,7 @@ section:
       **Kontakt:**
 
 
-      E-Mail: gloomicious@gmail.com
+      E-Mail: hello@gloomicious.com
 
 
       **Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**
@@ -65,7 +73,7 @@ section:
       **Contact:**
 
 
-      E-Mail: gloomicious@gmail.com
+      E-Mail: hello@gloomicious.com
 
 
       **Responsible for contents acc. to Sec. 55, para. 2 German Federal Broadcasting Agreement (RstV):**

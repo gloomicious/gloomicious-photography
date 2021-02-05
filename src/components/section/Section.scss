@@ -2,6 +2,7 @@
 
 .section {
   $p: &;
+  position: relative;
   padding: 0;
 
   &:not(:last-of-type) {
@@ -96,7 +97,7 @@
 
   &__anchor {
     position: absolute;
-    bottom: 0;
+    top: -#{$spacing-xl};
   }
 
   &__title {
