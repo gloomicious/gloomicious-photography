@@ -35,6 +35,11 @@ body {
     svg {
       fill: $light;
     }
+
+    blockquote {
+      background-color: $gray-4;
+      color: $gray-1;
+    }
   }
 }
 
@@ -100,9 +105,12 @@ h6 {
   font-size: $font-sm;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+blockquote {
+  margin: 0;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-sm;
+  background-color: $gray-1;
+  color: $gray-4;
 }
 
 button {
