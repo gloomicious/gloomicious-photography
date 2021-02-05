@@ -4,6 +4,7 @@
   @include not-selectable();
   $p: &;
   position: relative;
+  z-index: 100;
   margin-top: $spacing-lg;
   margin-bottom: $spacing-xxl;
   padding-bottom: $spacing-xs;
