@@ -48,6 +48,17 @@
     #{$p}__item {
       height: 20em;
 
+      &:hover {
+        cursor: pointer;
+
+        #{$p}__item__image {
+          transform: none;
+          div {
+            transform: scale(1.05);
+          }
+        }
+      }
+
       &:before {
         padding-bottom: 0;
       }
@@ -136,10 +147,8 @@
     &:hover {
       cursor: pointer;
 
-      #{$p}__item {
-        &__image {
-          transform: scale(1.05);
-        }
+      #{$p}__item__image {
+        transform: scale(1.05);
 
         &__caption {
           color: $gray-2;
@@ -155,10 +164,6 @@
       position: absolute;
       top: 0;
       transition: $transition-fast;
-
-      > div {
-        transition: $transition-fast;
-      }
     }
 
     &__label {
