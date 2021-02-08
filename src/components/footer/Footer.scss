@@ -42,13 +42,13 @@
 
     &__container {
       display: flex;
-      justify-content: space-evenly;
-      width: 50%;
+      justify-content: center;
+      width: 75%;
       margin-top: $spacing-xs;
       @media screen and (min-width: $screen-md) {
         justify-content: initial;
         width: initial;
-      margin-top: initial;
+        margin-top: initial;
 
         &:not(:last-of-type) {
           margin-right: $spacing-sm;
@@ -58,9 +58,7 @@
 
     &__link {
       &:not(:last-child) {
-        @media screen and (min-width: $screen-md) {
-          margin-right: $spacing-sm;
-        }
+        margin-right: $spacing-sm;
       }
 
       svg {

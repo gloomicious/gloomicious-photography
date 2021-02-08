@@ -27,7 +27,7 @@
 
   &--page-head,
   &--page-start {
-    height: 50vh;
+    height: 20vh;
     @media screen and (min-width: $screen-md) {
       height: 40vh;
     }
@@ -52,8 +52,7 @@
   }
 
   &--page-start {
-    margin-top: -$spacing-xl;
-    margin-bottom: $spacing-xxl;
+    margin-bottom: $spacing-xl;
   }
 
   &--square {
