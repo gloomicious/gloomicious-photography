@@ -2,10 +2,11 @@
 templateKey: general-page
 seoTitle: Outdoor & Aerial Photography
 seoDescription: I'm Jenny, an aspiring outdoor and aerial photographer with a
-  curious mind and I want to show you our beautiful planet.
+  curious mind. With Gloomicious Photography I want to show you our beautiful planet and share my journey of travels.
 path: /
 pageImage: a7_01040.jpg
 showPageImage: full-page
+date: 2021-02-08T09:10:32.295Z
 section:
   - type: 1-column
     size: narrow
@@ -20,10 +21,10 @@ section:
     buttonLabel: Explore collections
     buttonLink: /collections
     content: >-
-      The world has so much to offer, yet many people experience so little of it by themselves.
+      The world has so much to offer, yet many people are not able to travel and experience all of it by themselves.
       Photos enable us to capture the uniqueness of our surroundings, they are made to be shared.
       Different perspectives reveal yet another, unknown view and through them we are abke to expand our horizons.
-      Join me on my journey to explore the Earth and discover its beauty along the way - from deserts to oceans, forests to cities, air to underwater.
+      Join me on my journey traveling and exploring the Earth and discover its beauty along the way - from deserts to oceans, forests to cities, air to underwater.
   - type: 1-column
     size: wide
     gallery:

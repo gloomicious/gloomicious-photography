@@ -1,11 +1,11 @@
 ---
 templateKey: general-page
 seoTitle: Journal
-seoDescription: Stories about experiences I made along my journey to discover this planet.
+seoDescription: The blog of Gloomicious Photography with stories about experiences I made along my journey and travels to discover this planet.
 path: /journal
 pageTitle: Journal
 showPageImage: "false"
-date: 2021-02-03T09:14:14.820Z
+date: 2021-02-08T09:10:32.295Z
 section:
   - type: 1-column
     size: narrow

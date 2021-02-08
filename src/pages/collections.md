@@ -1,11 +1,11 @@
 ---
 templateKey: general-page
 seoTitle: Collections
-seoDescription: This is a description to tell more about what the page is about.
+seoDescription: Capturing the world's beauty while traveling - have a look at the photos I took in this portfolio of collections.
 path: /collections
 pageImage: a7_01040.jpg
 showPageImage: "false"
-date: 2021-02-03T09:14:19.975Z
+date: 2021-02-08T09:10:32.295Z
 section:
   - type: 1-column
     size: narrow

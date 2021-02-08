@@ -1,11 +1,11 @@
 ---
 templateKey: blog-page
 seoTitle: Gear I use
-seoDescription: This is a description to tell more about what the page is about.
+seoDescription: What camera do I use and which software do I edit my photos with? A look behind the scenes of Gloomicious Photography.
 path: /gear-i-use
 pageImage: dji_0218.jpg
 showPageImage: page-start
-date: 2020-12-26T23:00:00.000Z
+date: 2021-02-08T09:10:32.295Z
 category: photography
 ---
 One of the most asked questions in photography probably resolves around which gear is used to get the photos you see on here.

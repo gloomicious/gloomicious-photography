@@ -8,7 +8,7 @@ export default function NotFoundPage() {
     <Layout>
       <SEO
         title="Destination Not Found"
-        description="404 Error - This page doesn't exist here."
+        description="The requested page doesn't exist - try looking somewhere else across this site!"
       />
       <Section
         type="1-column"

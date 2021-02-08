@@ -1,11 +1,11 @@
 ---
 templateKey: general-page
 seoTitle: About
-seoDescription: About Jenny, the person behind the lens at gloomicious
+seoDescription: Get to know me, Jenny, the person behind Gloomicious Photography and what I'm passionate about.
 path: /about
 pageImage: a7_01581.jpg
 showPageImage: page-start
-date: 2021-02-03T09:14:03.949Z
+date: 2021-02-08T09:10:32.295Z
 section:
   - type: 1-column
     size: narrow
@@ -15,7 +15,7 @@ section:
       *"The goal isn't to live forever, the goal is to create something that will."*
 
 
-      Hi there! I'm Jenny and I'm the human behind the camera. I created gloomicious to have a place where I can share my greatest passions with the world - outdoor, landscape and aerial photography and exploration. Seeing new places, different landscapes, people and cultures is what makes me feel at my happiest, and that feeling is what I'd like to share.
+      Hi there! I'm Jenny and I'm the human behind the camera. I created gloomicious to have a place where I can share my greatest passions with the world - outdoor, landscape and aerial photography and exploration. Traveling to new places, seeing different landscapes, people and cultures is what makes me feel at my happiest, and that feeling is what I'd like to share.
       
       
       I want to show you that no matter where you live or go the earth is far from boring, that everywhere something amazing is to be discovered and there are infinite possibilities.
