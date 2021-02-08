@@ -5,18 +5,22 @@ import "./ThemeToggle.scss"
 
 function ThemeToggle({ theme, className }) {
   return (
-    <div
-      className={`theme-toggle${className ? ` ${className}` : ""} ${
-        theme.name
-      } `}
-      onClick={() =>
-        theme.updateTheme &&
-        theme.updateTheme(theme.name === "light" ? "dark" : "light")
-      }
-      role="presentation"
-    >
-      {theme.name === "light" ? <Icon name="moon" /> : <Icon name="sun" />}
-    </div>
+    <>
+      {theme && (
+        <div
+          className={`theme-toggle${className ? ` ${className}` : ""} ${
+            theme.name
+          } `}
+          onClick={() =>
+            theme.updateTheme &&
+            theme.updateTheme(theme.name === "light" ? "dark" : "light")
+          }
+          role="presentation"
+        >
+          {theme.name === "light" ? <Icon name="moon" /> : <Icon name="sun" />}
+        </div>
+      )}
+    </>
   )
 }
 
