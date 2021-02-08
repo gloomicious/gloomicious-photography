@@ -70,6 +70,14 @@ module.exports = {
         theme_color: `#008bb7`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
+        icons: [
+          {
+            src: `src/images/favicon-maskable.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          }
+        ],
       },
     },
     {
@@ -84,6 +92,7 @@ module.exports = {
         google: {
           families: ["Inter:400,500,600,800", "sans-serif"],
         },
+        display: `swap`,
       },
     },
     {

@@ -34,6 +34,10 @@ function Footer({ size, content }) {
             {data.social.map((item, index) => (
               <a
                 href={item.link}
+                aria-label={
+                  item.icon.toString().charAt(0).toUpperCase() +
+                  item.icon.toString().slice(1)
+                }
                 className="footer__page-links__link"
                 key={index}
               >
