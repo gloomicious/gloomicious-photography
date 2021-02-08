@@ -25,10 +25,10 @@ body {
 
     p a,
     ul a {
-      color: $primary;
+      color: $primary-light;
 
       &:hover {
-        color: $primary-light;
+        color: $primary;
       }
     }
 
