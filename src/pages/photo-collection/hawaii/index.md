@@ -34,4 +34,12 @@ section:
         - image: a7_04243.jpg
         - image: a7_09125.jpg
         - image: a7_09828.jpg
+        - image: a7_01040.jpg
+        - image: a7_01015.jpg
+        - image: a7_01143.jpg
+        - image: a7_00703.jpg
+        - image: a7_09153_1.jpg
+        - image: a7_00508.jpg
+        - image: dji_0607.jpg
+        - image: a7_01247.jpg
 ---
