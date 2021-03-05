@@ -23,4 +23,7 @@ section:
       photos:
         - image: a7_04011.jpg
         - image: a7_00680.jpg
+        - image: dji_0618.jpg
+        - image: a7_01150.jpg
+        - image: a7_00638.jpg
 ---
