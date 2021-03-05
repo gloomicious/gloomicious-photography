@@ -15,4 +15,12 @@ section:
     gallery:
       type: auto
     title: The islands of Hawai'i
+  - type: 1-column
+    size: wide
+    alignment: center
+    gallery:
+      type: auto
+      photos:
+        - image: a7_04011.jpg
+        - image: a7_00680.jpg
 ---
