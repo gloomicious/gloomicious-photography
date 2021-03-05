@@ -26,4 +26,12 @@ section:
         - image: dji_0618.jpg
         - image: a7_01150.jpg
         - image: a7_00638.jpg
+        - image: a7_00655.jpg
+        - image: a7_00455.jpg
+        - image: a7_03822.jpg
+        - image: a7_00814.jpg
+        - image: a7_09763.jpg
+        - image: a7_04243.jpg
+        - image: a7_09125.jpg
+        - image: a7_09828.jpg
 ---
