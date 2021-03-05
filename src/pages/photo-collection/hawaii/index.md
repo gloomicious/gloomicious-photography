@@ -14,17 +14,17 @@ section:
     alignment: center
     gallery:
       type: auto
-    title: The Hawai'ian islands
+    title: The Hawai'ian Islands
     subtitle: A paradise on Earth
     content: "More than two thousand miles off the US mainland and in the middle of
       the Pacific Ocean lies a lush archipelago - the Hawai'ian islands. The
       eight main islands are called the Windward Islands, and they include the
-      four biggest ones known and regularly visited: Kaua'i - the Garden Isle,
-      Maui - the Valley Isle, O'ahu - the Gathering Place and the island named
-      Hawai'i, nicknamed The Big Island. Every single one of them holds special
+      four biggest ones known and often visited: Kaua'i - the Garden Isle, Maui
+      - the Valley Isle, O'ahu - the Gathering Place and an island named Hawai'i
+      itself, nicknamed The Big Island. Every single one of them holds special
       landscapes, nature and culture of their own kinds. Take a journey to a
-      place people rightly call the paradise on Earth, and holds a special place
-      in my heart as well."
+      place people rightly call the paradise on Earth, and that holds a special
+      place in my heart as well."
   - type: 1-column
     size: wide
     alignment: center
@@ -37,13 +37,13 @@ section:
         - image: a7_00638.jpg
         - image: a7_00655.jpg
         - image: a7_00455.jpg
-        - image: dji_0618.jpg
         - image: a7_03822.jpg
         - image: a7_00814.jpg
         - image: a7_09763.jpg
         - image: a7_04243.jpg
         - image: a7_09125.jpg
         - image: a7_09828.jpg
+        - image: dji_0618.jpg
         - image: a7_01040.jpg
         - image: a7_01015.jpg
         - image: a7_01143.jpg
