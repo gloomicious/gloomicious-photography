@@ -39,11 +39,11 @@ section:
         - image: a7_00455.jpg
         - image: a7_03822.jpg
         - image: a7_00814.jpg
+        - image: dji_0618.jpg
         - image: a7_09763.jpg
         - image: a7_04243.jpg
         - image: a7_09125.jpg
         - image: a7_09828.jpg
-        - image: dji_0618.jpg
         - image: a7_01040.jpg
         - image: a7_01015.jpg
         - image: a7_01143.jpg
