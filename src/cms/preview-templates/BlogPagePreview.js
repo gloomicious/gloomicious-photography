@@ -12,7 +12,8 @@ function BlogPagePreview({ entry }) {
         pageImage={data.pageImage}
         showPageImage={data.showPageImage}
         creationDate={data.date}
-        content={data.content}
+        content={data.body}
+        preview="true"
       />
     )
   } else {

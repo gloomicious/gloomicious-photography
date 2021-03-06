@@ -11,9 +11,10 @@ export function GeneralPageTemplate({
   pageImage,
   showPageImage,
   sections,
+  preview,
 }) {
   return (
-    <Layout>
+    <Layout preview={preview}>
       {pageImage && showPageImage === "full-page" ? (
         <>
           <ImageBox filename={pageImage} size={showPageImage} />
@@ -87,6 +88,7 @@ GeneralPageTemplate.propTypes = {
   pageImage: PropTypes.string,
   showPageImage: PropTypes.string,
   sections: PropTypes.array,
+  preview: PropTypes.string,
 }
 
 function GeneralPage({ data }) {

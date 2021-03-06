@@ -7,7 +7,7 @@ import "./Layout.scss"
 import Navbar from "../navbar/Navbar"
 import Footer from "../footer/Footer"
 
-function Layout({ children }) {
+function Layout({ children, preview }) {
   const [canRender, setCanRender] = React.useState(false)
 
   React.useEffect(() => {
@@ -26,7 +26,11 @@ function Layout({ children }) {
             (theme.name === "dark"
               ? document.body.classList.add("dark")
               : document.body.classList.remove("dark"))}
-          <div className="content-wrapper">
+          <div
+            className={`content-wrapper${
+              preview ? " content-wrapper--preview" : ""
+            }`}
+          >
             <header>
               <Navbar theme={theme} />
             </header>
@@ -40,10 +44,7 @@ function Layout({ children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
-  ])
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 export default Layout

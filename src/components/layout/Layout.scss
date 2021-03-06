@@ -142,4 +142,8 @@ button {
   max-width: $site-width;
   margin: 0 auto;
   padding: 0 $spacing-sm;
+
+  &--preview {
+    margin: 0;
+  }
 }

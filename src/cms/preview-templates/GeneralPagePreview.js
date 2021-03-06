@@ -6,7 +6,7 @@ function GeneralPagePreview({ entry }) {
   const data = entry.getIn(["data"]).toJS()
 
   if (data) {
-    return <GeneralPageTemplate sections={data.section} />
+    return <GeneralPageTemplate sections={data.section} preview="true" />
   } else {
     return <div>Loading...</div>
   }

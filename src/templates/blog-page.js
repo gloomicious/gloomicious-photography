@@ -35,8 +35,9 @@ export const BlogPageTemplate = ({
   showPageImage,
   creationDate,
   content,
+  preview,
 }) => (
-  <Layout>
+  <Layout preview={preview}>
     {pageImage && showPageImage ? (
       <>
         {showPageImage === "page-head" && (
@@ -69,6 +70,7 @@ BlogPageTemplate.propTypes = {
   showPageImage: PropTypes.string,
   creationDate: PropTypes.string,
   content: PropTypes.string,
+  preview: PropTypes.string,
 }
 
 function BlogPage({ data }) {
