@@ -198,14 +198,18 @@ collections:
   - name: pages
     label: General pages
     files:
+      - file: src/pages/index.md
+        label: Landing page
+        name: index
+        fields: *generalPageContent
       - file: src/pages/collections.md
         label: Collections
         name: collections
-        fields: *generalPageContent 
+        fields: *generalPageContent
       - file: src/pages/journal.md
         label: Journal
         name: journal
-        fields: *generalPageContent    
+        fields: *generalPageContent 
       - file: src/pages/about.md
         label: About
         name: about
