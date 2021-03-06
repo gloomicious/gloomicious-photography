@@ -20,8 +20,17 @@ $surface-dark-4: #353535;
 $surface-dark-5: #2b2b2b;
 $background-light: $light;
 $background-dark: $gray-5;
+
+// Utility colors
+$error: #b00020;
 $error-light: #cf6679;
-$error-dark: #b00020;
+$error-dark: #790000;
+$warning: #f4b740;
+$warning-light: #ffe971;
+$warning-dark: #bd8700;
+$sucess: #7cb342;
+$success-light: #aee571;
+$success-dark: #4b830d;
 
 // Typography
 $font: "Inter", sans-serif;
@@ -39,14 +48,14 @@ $font-xl: 2rem; //32px
 $font-xxl: 3rem; //48px
 
 // Sizes
-$site-width: 1200px;
+$site-width: 1140px;
 $content-width: 700px;
 $button-size-sm: 30px;
 $button-size-md: 40px;
 $button-size-lg: 60px;
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
-$border-radius-lg: 12px;
+$border-radius-lg: 16px;
 $border-radius-round: 100px;
 
 // Spacing
@@ -73,8 +82,16 @@ $transition-medium: all 0.25s ease-out, all 0.2s ease-out;
 $transition-fast: all 0.1s ease-out;
 
 // Mixins
-@mixin box-shadow($color: $gray-3, $alpha: 0.2) {
-  box-shadow: 0px 10px 25px rgba($color, $alpha);
+@mixin box-shadow-sm($color: $gray-5, $alpha: 0.04) {
+  box-shadow: 0px 8px 16px rgba($color, $alpha);
+}
+
+@mixin box-shadow-md($color: $gray-5, $alpha: 0.04) {
+  box-shadow: 0px 8px 24px rgba($color, $alpha);
+}
+
+@mixin box-shadow-lg($color: $gray-5, $alpha: 0.04) {
+  box-shadow: 0px 16px 32px rgba($color, $alpha);
 }
 
 @mixin not-selectable() {
