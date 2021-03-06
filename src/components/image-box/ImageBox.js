@@ -78,7 +78,7 @@ function ImageBox({ filename, size, alt, className, children }) {
         }
         return (
           <div
-            className={`image-box${size ? ` image-box--${size}` : ""} ${
+            className={`image-box${size ? ` image-box--${size}` : ""}${
               className ? ` ${className}` : ""
             } `}
           >
