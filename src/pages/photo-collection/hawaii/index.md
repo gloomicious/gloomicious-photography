@@ -25,6 +25,7 @@ section:
       landscapes, nature and culture of their own kinds. Take a journey to a
       place people rightly call the paradise on Earth, and that holds a special
       place in my heart as well."
+    name: Intro text
   - type: 1-column
     size: wide
     alignment: center
@@ -52,4 +53,5 @@ section:
         - image: a7_00508.jpg
         - image: dji_0607.jpg
         - image: a7_01247.jpg
+    name: Image gallery
 ---

@@ -1,7 +1,8 @@
 ---
 templateKey: general-page
 seoTitle: Journal
-seoDescription: The blog of Gloomicious Photography with stories about experiences I made along my journey and travels to discover this planet.
+seoDescription: The blog of Gloomicious Photography with stories about
+  experiences I made along my journey and travels to discover this planet.
 path: /journal
 pageTitle: Journal
 showPageImage: "false"
@@ -19,8 +20,10 @@ section:
 
 
       Enjoy the read and feel free to [share your thoughts](/contact) with me if you'd like to!
+    name: Intro text
   - type: 1-column
     size: narrow
     pageList: blog-pages
     alignment: left
+    name: Blog entries gallery
 ---

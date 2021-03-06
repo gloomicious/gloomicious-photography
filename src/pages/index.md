@@ -15,6 +15,7 @@ section:
     alignment: center
     buttonLabel: Let me show you
     buttonLink: "#expanding-horizons"
+    name: Page Header
   - type: 1-column
     size: narrow
     title: Expanding horizons
@@ -28,6 +29,7 @@ section:
       to expand our horizons. Join me on my journey traveling and exploring the
       Earth and discover its beauty along the way - from deserts to oceans,
       forests to cities, air to underwater.
+    name: Text
   - type: 1-column
     size: wide
     gallery:
@@ -42,4 +44,5 @@ section:
         - image: a7_04011.jpg
         - image: a7_01040.jpg
     alignment: center
+    name: Images
 ---

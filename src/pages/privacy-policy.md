@@ -15,6 +15,7 @@ section:
     content: Please find the [German version](#german-version) of the privacy policy
       in the following section and the [English version](#english-version)
       below.
+    name: Heading
   - type: 1-column
     size: narrow
     alignment: left
@@ -219,6 +220,7 @@ section:
 
 
       Es wird auf eine automatische Entscheidungsfindung oder ein Profiling verzichtet.
+    name: German version
   - type: 1-column
     size: narrow
     alignment: left
@@ -423,4 +425,5 @@ section:
 
 
       No automatic decision-making or profiling is used.
+    name: English version
 ---

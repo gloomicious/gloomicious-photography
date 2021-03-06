@@ -22,6 +22,7 @@ section:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
+    name: Intro text
   - type: 1-column
     size: wide
     gallery:
@@ -32,4 +33,5 @@ section:
         - image: dji_0479.jpg
           title: Title 2
     alignment: left
+    name: Image gallery
 ---

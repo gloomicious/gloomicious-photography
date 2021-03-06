@@ -43,6 +43,7 @@ project:
         hint: A row on the page including content from given fields. Content is displayed if the corresponding field contains a value.,
         fields:
           [
+            { label: Name, name: name, widget: string, required: true, hint: The name of the section used for reference for the CMS. Is not displayed on the website. },
             { label: Section content, name: type, widget: select, options: [1-column, 2-columns], default: 1-column, hint: "'1-column' shows all content in one column, '2-columns' requires an image and shows title, text and button on the left and the image on the right." },
             { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should be narrow or span across the entire screen width. },
             { label: Content alignment, name: alignment, widget: select, options: [left, center], default: left, hint: Specifies where content should align. },
@@ -128,6 +129,7 @@ project:
         hint: A row on the page including content from given fields. Content is displayed if the corresponding field contains a value.,
         fields:
           [
+            { label: Name, name: name, widget: string, required: true, hint: The name of the section used for reference for the CMS. Is not displayed on the website. },
             { label: Section content, name: type, widget: select, options: [1-column, 2-columns], default: 1-column, hint: "'1-column' shows all content in one column, '2-columns' requires an image and shows title, text and button on the left and the image on the right." },
             { label: Section width, name: size, widget: select, options: [narrow, wide], default: narrow, hint: Specifies whether the section should be narrow or span across the entire screen width. },
             { label: Content alignment, name: alignment, widget: select, options: [left, center], default: left, hint: Specifies where content should align. },
