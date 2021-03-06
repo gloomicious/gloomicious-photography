@@ -21,16 +21,15 @@ function Layout({ children, preview }) {
   return (
     <ThemeContext.Consumer>
       {theme => (
-        <SimpleBar style={{ maxHeight: "100vh" }}>
+        <SimpleBar
+          style={{ maxHeight: "100vh" }}
+          className={preview === "true" ? "preview-content" : ""}
+        >
           {canRender &&
             (theme.name === "dark"
               ? document.body.classList.add("dark")
               : document.body.classList.remove("dark"))}
-          <div
-            className={`content-wrapper${
-              preview ? " content-wrapper--preview" : ""
-            }`}
-          >
+          <div className="content-wrapper">
             <header>
               <Navbar theme={theme} />
             </header>
