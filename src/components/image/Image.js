@@ -16,7 +16,7 @@ function Image({ filename, size, alt, style, className }) {
                 name
                 childImageSharp {
                   fluid(maxWidth: 3000, quality: 100) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

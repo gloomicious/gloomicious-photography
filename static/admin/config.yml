@@ -12,6 +12,7 @@ site_url: https://gloomicious.com
 display_url: https://gloomicious.com
 
 media_folder: src/images
+public_folder: ""
 
 project:
   - &generalPageContent

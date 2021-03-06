@@ -61,7 +61,7 @@ function ImageBox({ filename, size, alt, className, children }) {
                 name
                 childImageSharp {
                   fluid(maxWidth: 6000) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
