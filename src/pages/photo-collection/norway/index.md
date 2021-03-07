@@ -18,7 +18,7 @@ section:
     title: Norway
     subtitle: Land of fjords and vikings
   - type: 1-column
-    size: narrow
+    size: wide
     alignment: left
     gallery:
       type: auto
@@ -26,11 +26,11 @@ section:
         - image: dji_0928.jpg
         - image: a7_04909.jpg
         - image: a7_04933.jpg
+        - image: dji_0105.jpg
         - image: a7_04882.jpg
         - image: dji_0900.jpg
         - image: dji_0911.jpg
         - image: a7_04963.jpg
-        - image: dji_0105.jpg
         - image: dji_0908.jpg
     name: Image gallery
 ---
