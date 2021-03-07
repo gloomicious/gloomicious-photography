@@ -18,14 +18,9 @@ section:
     name: Intro text
   - type: 1-column
     size: narrow
+    alignment: center
     gallery:
       type: auto
-      photos:
-        - title: Title
-          image: dji_0479.jpg
-        - image: dji_0479.jpg
-          title: Title 2
-    alignment: center
     name: Placeholder text
     content: Coming soon...
 ---
