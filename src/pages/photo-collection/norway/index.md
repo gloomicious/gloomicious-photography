@@ -32,5 +32,7 @@ section:
         - image: dji_0911.jpg
         - image: a7_04963.jpg
         - image: dji_0908.jpg
+        - image: a7_04899.jpg
+        - image: dji_0090.jpg
     name: Image gallery
 ---
