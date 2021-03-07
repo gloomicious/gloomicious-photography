@@ -19,7 +19,7 @@ section:
     buttonLabel: ""
     name: Intro text
   - type: 1-column
-    size: narrow
+    size: wide
     pageList: photo-collections
     alignment: left
     name: Image gallery
