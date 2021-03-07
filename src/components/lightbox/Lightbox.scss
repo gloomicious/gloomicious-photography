@@ -1,23 +1,5 @@
 @import "styles/variables.scss";
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .lightbox {
   $p: &;
   position: fixed;
@@ -28,7 +10,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba($gray-5, 0.5);
-  animation: fadein 0.5s;
 
   &.dark {
     #{$p}__content {
@@ -45,10 +26,6 @@
         }
       }
     }
-  }
-
-  &--hidden {
-    animation: fadeout 1s;
   }
 
   &__close-button {
@@ -73,17 +50,6 @@
     height: 100%;
     background-color: $light;
     color: $dark;
-  }
-
-  &__image,
-  &__title {
-    &--hidden {
-      opacity: 0;
-    }
-
-    &--visible {
-      animation: fadein 1s;
-    }
   }
 
   &__image {

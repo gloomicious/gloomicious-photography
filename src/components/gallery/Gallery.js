@@ -9,7 +9,6 @@ import "./Gallery.scss"
 function Gallery({ items, type, filters }) {
   const [currentFilter, setCurrentFilter] = useState("all"),
     [currentLightbox, setCurrentLightbox] = useState(""),
-    [animate, setAnimate] = useState(false),
     [lightboxOpened, setLightboxOpened] = useState(false)
   let filterAllLabel = ["all"],
     allFilters
@@ -38,16 +37,6 @@ function Gallery({ items, type, filters }) {
     return formattedDate
   }
 
-  function ChangeDisplayedItems(filter) {
-    setAnimate(true)
-    setTimeout(() => {
-      setCurrentFilter(filter)
-    }, 400)
-    setTimeout(() => {
-      setAnimate(false)
-    }, 800)
-  }
-
   function RenderFilters() {
     return (
       <div className="gallery__filters">
@@ -56,7 +45,7 @@ function Gallery({ items, type, filters }) {
             filter !== null && (
               <span
                 key={index}
-                onClick={() => ChangeDisplayedItems(filter)}
+                onClick={() => setCurrentFilter(filter)}
                 className={`gallery__filters__filter${
                   currentFilter === filter
                     ? " gallery__filters__filter--active"
@@ -140,11 +129,7 @@ function Gallery({ items, type, filters }) {
   return (
     <>
       {lightboxOpened && currentLightbox}
-      <div
-        className={`gallery gallery--${type}${
-          animate ? " gallery--animated" : ""
-        }`}
-      >
+      <div className={`gallery gallery--${type}`}>
         {filters && filters.length > 1 && RenderFilters()}
         {RenderGallery()}
       </div>
