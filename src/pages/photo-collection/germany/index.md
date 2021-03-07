@@ -1,30 +1,23 @@
 ---
 templateKey: general-page
 seoTitle: Germany
-seoDescription: A collection of photos captured in Germany, the country of
-  medieval castles and idyllic villages - including what I most like about
-  traveling there.
+seoDescription: Travel to Germany, the country of medieval castles, deep forests
+  and idyllic villages, through photography.
 path: /germany
 pageImage: dji_0479.jpg
 showPageImage: "false"
 category: europe
-date: 2021-02-08T09:10:32.295Z
+date: 2021-03-07T14:06:56.141Z
 section:
   - type: 1-column
     size: narrow
     alignment: center
     title: Germany
-    subtitle: Medieval castles and idyllic villages
-    content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+    subtitle: Medieval castles and deep forests
+    content: ""
     name: Intro text
   - type: 1-column
-    size: wide
+    size: narrow
     gallery:
       type: auto
       photos:
@@ -32,6 +25,7 @@ section:
           image: dji_0479.jpg
         - image: dji_0479.jpg
           title: Title 2
-    alignment: left
-    name: Image gallery
+    alignment: center
+    name: Placeholder text
+    content: Coming soon...
 ---
